@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بنك أسئلة فيزياء 2 — Physics II Question Bank</title>
+<meta name="description" content="139 سؤال اختيار من متعدد في فيزياء 2 (ديناميكا حرارية + SHM) مع الحل التفصيلي وفيديوهات شرح عربي وإنجليزي.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="📘 بنك أسئلة فيزياء 2 — 139 سؤال مع الحل">
+<meta property="og:description" content="أسئلة اختيار من متعدد بالعربي والإنجليزي مع شرح مبسط وفيديوهات تعليمية لكل موضوع (ديناميكا حرارية + SHM)">
+<meta property="og:image" content="physics2_preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="📘 بنك أسئلة فيزياء 2 — 139 سؤال مع الحل">
+<meta name="twitter:description" content="أسئلة اختيار من متعدد بالعربي والإنجليزي مع شرح مبسط وفيديوهات تعليمية لكل موضوع">
+<meta name="twitter:image" content="physics2_preview.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-deep:#121b30;
+  --navy-panel:#1a2740;
+  --navy-card:#1f2e4a;
+  --navy-line:#384b75;
+  --amber:#e8a33d;
+  --amber-soft:#f3c47a;
+  --ink:#eaeffa;
+  --muted:#a9b8d9;
+  --good:#4fbf8b;
+  --bad:#e0556f;
+  --good-bg:rgba(79,191,139,.13);
+  --bad-bg:rgba(224,85,111,.13);
+  --radius:10px;
+  --mono:'JetBrains Mono',monospace;
+  --disp:'Cairo',sans-serif;
+  --body:'Tajawal',sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:var(--navy-deep);color:var(--ink);font-family:var(--body);}
+body{
+  background-image:
+    linear-gradient(var(--navy-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--navy-line) 1px, transparent 1px);
+  background-size:42px 42px;
+  background-attachment:fixed;
+  background-color:var(--navy-deep);
+  min-height:100vh;
+}
+.wrap{max-width:880px;margin:0 auto;padding:28px 18px 80px;}
+
+/* Header */
+.hero{
+  position:relative;
+  border:1px solid var(--navy-line);
+  background:linear-gradient(160deg,var(--navy-panel),var(--navy-deep));
+  border-radius:var(--radius);
+  padding:28px 26px 22px;
+  margin-bottom:22px;
+  overflow:hidden;
+}
+.hero::before,.hero::after{
+  content:"";position:absolute;width:18px;height:18px;
+  border:2px solid var(--amber);opacity:.55;
+}
+.hero::before{top:10px;right:10px;border-left:none;border-bottom:none;}
+.hero::after{bottom:10px;left:10px;border-right:none;border-top:none;}
+.eyebrow{
+  font-family:var(--mono);font-size:14px;letter-spacing:.12em;color:var(--amber-soft);
+  text-transform:uppercase;margin-bottom:8px;
+}
+h1{
+  font-family:var(--disp);font-weight:800;font-size:clamp(22px,4vw,30px);
+  margin:0 0 6px;color:var(--ink);
+}
+.subtitle{color:var(--muted);font-size:16.5px;line-height:1.7;margin:0;}
+
+/* Stats dial row */
+.stats{
+  display:flex;gap:14px;margin-top:18px;flex-wrap:wrap;
+}
+.stat{
+  flex:1;min-width:110px;background:var(--navy-card);border:1px solid var(--navy-line);
+  border-radius:8px;padding:10px 14px;text-align:center;
+}
+.stat .num{font-family:var(--mono);font-size:23px;font-weight:600;color:var(--amber);}
+.stat .lbl{font-size:14px;color:var(--muted);margin-top:2px;}
+
+/* Filters */
+.filterbar{
+  position:sticky;top:0;z-index:20;
+  background:rgba(12,19,34,.92);backdrop-filter:blur(6px);
+  border:1px solid var(--navy-line);border-radius:var(--radius);
+  padding:14px 16px;margin-bottom:20px;
+}
+.filter-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:10px;}
+.filter-row:last-child{margin-bottom:0;}
+.filter-label{font-size:14.5px;color:var(--muted);font-family:var(--mono);min-width:78px;}
+select{
+  background:var(--navy-card);color:var(--ink);border:1px solid var(--navy-line);
+  border-radius:6px;padding:7px 10px;font-family:var(--body);font-size:16px;cursor:pointer;
+}
+.chip-group{display:flex;gap:6px;flex-wrap:wrap;}
+.chip{
+  background:var(--navy-card);border:1px solid var(--navy-line);color:var(--muted);
+  border-radius:20px;padding:6px 14px;font-size:15px;cursor:pointer;transition:.15s;
+  font-family:var(--body);
+}
+.chip.active{background:var(--amber);color:#221706;border-color:var(--amber);font-weight:600;}
+.chip:hover{border-color:var(--amber-soft);}
+#resetBtn{
+  margin-right:auto;background:none;border:1px solid var(--navy-line);color:var(--muted);
+  border-radius:6px;padding:6px 12px;font-size:15px;cursor:pointer;font-family:var(--body);
+}
+#resetBtn:hover{color:var(--bad);border-color:var(--bad);}
+
+/* Question card */
+.qcount{font-size:15px;color:var(--muted);margin-bottom:14px;font-family:var(--mono);}
+.card{
+  position:relative;
+  background:var(--navy-card);border:1px solid var(--navy-line);
+  border-radius:var(--radius);padding:18px 20px 20px;margin-bottom:16px;
+}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px;}
+.qnum{font-family:var(--mono);color:var(--amber);font-weight:600;font-size:16px;}
+.tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;}
+.tag{font-size:13px;padding:3px 9px;border-radius:20px;font-family:var(--mono);white-space:nowrap;}
+.tag.topic{background:rgba(232,163,61,.13);color:var(--amber-soft);border:1px solid rgba(232,163,61,.3);}
+.tag.diff-easy{background:rgba(79,191,139,.13);color:var(--good);border:1px solid rgba(79,191,139,.3);}
+.tag.diff-medium{background:rgba(232,163,61,.13);color:var(--amber-soft);border:1px solid rgba(232,163,61,.3);}
+.tag.diff-hard{background:rgba(224,85,111,.13);color:var(--bad);border:1px solid rgba(224,85,111,.3);}
+.qtext{
+  font-size:17px;line-height:1.75;margin-bottom:14px;color:var(--ink);
+  direction:ltr;text-align:left;font-family:var(--body);
+}
+.qtext .ar{direction:rtl;text-align:right;display:block;margin-bottom:4px;color:var(--muted);font-size:16px;}
+.options{display:grid;gap:8px;}
+.opt{
+  direction:ltr;text-align:left;
+  background:var(--navy-panel);border:1px solid var(--navy-line);border-radius:8px;
+  padding:10px 14px;font-family:var(--mono);font-size:16px;cursor:pointer;
+  transition:.12s;color:var(--ink);
+}
+.opt:hover{border-color:var(--amber-soft);}
+.opt.correct{background:var(--good-bg);border-color:var(--good);color:var(--good);}
+.opt.wrong{background:var(--bad-bg);border-color:var(--bad);color:var(--bad);}
+.opt.disabled{cursor:default;}
+.opt.disabled:hover{border-color:var(--navy-line);}
+.solution{
+  margin-top:14px;padding:14px 16px;background:var(--navy-panel);
+  border-right:3px solid var(--amber);border-radius:0 8px 8px 0;
+  font-size:16.5px;line-height:1.85;color:var(--ink);display:none;
+}
+.solution.show{display:block;}
+.solution b{color:var(--amber-soft);}
+.solution .formula{direction:ltr;text-align:left;display:inline-block;font-family:var(--mono);color:var(--amber-soft);}
+
+.empty{
+  text-align:center;color:var(--muted);padding:60px 20px;font-family:var(--mono);
+}
+
+/* Topic intro panel */
+.intro{
+  position:relative;
+  background:linear-gradient(160deg,rgba(232,163,61,.08),var(--navy-panel));
+  border:1px solid rgba(232,163,61,.35);
+  border-radius:var(--radius);
+  padding:18px 20px 20px;margin:26px 0 16px;
+}
+.intro-tag{
+  display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:.08em;
+  color:#221706;background:var(--amber);border-radius:20px;padding:4px 12px;margin-bottom:10px;
+}
+.intro h3{font-family:var(--disp);font-size:20px;margin:0 0 10px;color:var(--amber-soft);}
+.intro-body{font-size:16.5px;line-height:1.95;color:var(--ink);}
+.intro-body .formula{direction:ltr;display:inline-block;font-family:var(--mono);color:var(--amber-soft);}
+.intro-body ul{margin:8px 0;padding-right:20px;}
+.intro-body li{margin-bottom:6px;}
+.vars{
+  list-style:none;margin:6px 0 10px;padding:8px 12px;
+  background:rgba(0,0,0,.18);border-radius:6px;font-size:15px;color:var(--muted);
+}
+.vars li{margin-bottom:3px;direction:rtl;}
+.vars b.sym{font-family:var(--mono);color:var(--amber-soft);direction:ltr;display:inline-block;}
+
+.resources{margin-top:14px;border-top:1px dashed rgba(232,163,61,.3);padding-top:12px;}
+.resources-label{
+  font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--muted);
+  text-transform:uppercase;margin-bottom:8px;
+}
+.res-table{width:100%;border-collapse:collapse;font-size:15px;}
+.res-table th{
+  background:rgba(232,163,61,.1);color:var(--amber-soft);font-family:var(--disp);
+  font-weight:700;padding:7px 10px;text-align:right;border:1px solid var(--navy-line);width:50%;
+}
+.res-table td{
+  padding:7px 10px;border:1px solid var(--navy-line);vertical-align:top;
+  background:rgba(255,255,255,.02);
+}
+.res-table td:not(:last-child){border-left:1px solid var(--navy-line);}
+.res-link{display:block;margin-bottom:6px;line-height:1.6;}
+.res-link:last-child{margin-bottom:0;}
+.res-link a{color:#7fb3e8;text-decoration:none;direction:ltr;display:inline-block;font-family:var(--mono);font-size:13.5px;}
+.res-link a:hover{text-decoration:underline;}
+.res-title{color:var(--ink);display:block;font-size:14.5px;margin-bottom:1px;}
+.res-author{color:var(--muted);font-size:13px;}
+
+footer{text-align:center;color:var(--muted);font-size:14.5px;margin-top:30px;font-family:var(--mono);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">PHYSICS II · EBA1104 / BA114 · Question Bank</div>
+    <h1>بنك أسئلة فيزياء 2</h1>
+    <p class="subtitle">139 سؤال اختيار من متعدد مع الحل التفصيلي — مرتبة حسب الموضوع والمستوى، ومركّزة على الموضوعات التي تتكرر فعلياً في امتحانات النهاية، مع تغطية أفكار نظرية إضافية (صيغ، وحدات، تمييز معادلات SHM، فحص القانونين على محركات متعددة...).</p>
+    <div class="stats">
+      <div class="stat"><div class="num" id="statTotal">139</div><div class="lbl">إجمالي الأسئلة</div></div>
+      <div class="stat"><div class="num" id="statAnswered">0</div><div class="lbl">تمت الإجابة</div></div>
+      <div class="stat"><div class="num" id="statCorrect">0</div><div class="lbl">إجابات صحيحة</div></div>
+      <div class="stat"><div class="num" id="statShown">139</div><div class="lbl">أسئلة معروضة</div></div>
+    </div>
+  </div>
+
+  <div class="filterbar">
+    <div class="filter-row">
+      <span class="filter-label">الموضوع</span>
+      <select id="topicFilter"></select>
+      <button id="resetBtn">إعادة ضبط الإجابات ↺</button>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">المستوى</span>
+      <div class="chip-group" id="diffChips">
+        <div class="chip active" data-diff="all">الكل</div>
+        <div class="chip" data-diff="easy">سهل</div>
+        <div class="chip" data-diff="medium">متوسط</div>
+        <div class="chip" data-diff="hard">صعب</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="qcount" id="qcount"></div>
+  <div id="quizContainer"></div>
+  <div class="empty" id="emptyMsg" style="display:none;">لا توجد أسئلة مطابقة لهذا الفلتر</div>
+
+  <footer>تم إعداده اعتماداً على شيت المنهج وامتحانات يونيو 2021 / 2023 / 2024 / 2025</footer>
+</div>
+
+<script>
+const TOPICS = {
+  "specific-latent": "الحرارة النوعية والكامنة",
+  "ideal-gas": "قوانين الغازات المثالية",
+  "first-law": "الشغل والقانون الأول",
+  "processes": "العمليات (Isochoric/Isobaric/Isothermal/Adiabatic/Polytropic)",
+  "cycles": "الدورات الحرارية (PV Cycles)",
+  "carnot": "محركات كارنو والثلاجات (Carnot, HE&R)",
+  "entropy": "الإنتروبي (Entropy)",
+  "conduction": "التوصيل الحراري (Heat Conduction)",
+  "shm": "الحركة التوافقية البسيطة (SHM)"
+};
+
+// Each question: {topic, diff, q (with optional <span class="ar">), opts[4], correct(0-index), exp}
+const Q = [
+// ---------------- SPECIFIC & LATENT HEAT (10) ----------------
+{topic:"specific-latent",diff:"easy",
+ q:"Calculate the heat needed to raise 2 kg of water from 20°C to 80°C. (c_water = 4.186 kJ/kg·K)",
+ opts:["502.32 kJ","251.16 kJ","100.46 kJ","602.78 kJ"],correct:0,
+ exp:"نستخدم معادلة الحرارة الحسية <b>Q = mcΔT</b>.<br><span class='formula'>Q = 2 × 4.186 × (80−20) = 502.32 kJ</span>"},
+
+{topic:"specific-latent",diff:"easy",
+ q:"Find the heat required to melt 0.5 kg of ice at 0°C. (L_f = 333 kJ/kg)",
+ opts:["166.5 kJ","333 kJ","83.25 kJ","666 kJ"],correct:0,
+ exp:"التغير من الحالة الصلبة للسائلة عند ثبوت درجة الحرارة يحتاج <b>الحرارة الكامنة Latent Heat</b>: <span class='formula'>Q = mL_f = 0.5 × 333 = 166.5 kJ</span>"},
+
+{topic:"specific-latent",diff:"easy",
+ q:"Calculate the heat needed to raise 3 kg of Aluminum by 50 K. (c_Al = 0.903 kJ/kg·K)",
+ opts:["135.45 kJ","270.9 kJ","45.15 kJ","90.3 kJ"],correct:0,
+ exp:"<span class='formula'>Q = mcΔT = 3 × 0.903 × 50 = 135.45 kJ</span>"},
+
+{topic:"specific-latent",diff:"medium",
+ q:"200 g of ice at 0°C is mixed with 500 g of water at 25°C in an insulated container. What is the final temperature?",
+ opts:["0°C (not all ice melts)","12.5°C","8.3°C","5°C"],correct:0,
+ exp:"نحسب الحرارة المتاحة من الماء حتى 0°C: <span class='formula'>Q_avail = 0.5 × 4.186 × 25 = 52.33 kJ</span>. والحرارة اللازمة لإذابة كل الثلج: <span class='formula'>Q_need = 0.2 × 333 = 66.6 kJ</span>. بما أن Q_avail أقل، فلن يذوب كل الثلج وتبقى درجة الحرارة النهائية <b>0°C</b>."},
+
+{topic:"specific-latent",diff:"medium",
+ q:"For the system in the previous question, calculate the mass of ice that actually melts.",
+ opts:["≈157 g","200 g","100 g","52 g"],correct:0,
+ exp:"الكتلة المنصهرة = الحرارة المتاحة ÷ الحرارة الكامنة: <span class='formula'>m = 52.33/333 ≈ 0.157 kg = 157 g</span>"},
+
+{topic:"specific-latent",diff:"medium",
+ q:"1 kg of copper at 100°C is dropped into 2 kg of water at 20°C. Find the final equilibrium temperature. (c_Cu = 0.385, c_water = 4.186 kJ/kg·K)",
+ opts:["23.5°C","40°C","15°C","60°C"],correct:0,
+ exp:"بتطبيق <b>Q_lost = Q_gained</b>: <span class='formula'>1×0.385×(100−T) = 2×4.186×(T−20)</span> ⟶ بالحل <span class='formula'>T ≈ 23.5°C</span>"},
+
+{topic:"specific-latent",diff:"hard",
+ q:"A lead bullet initially at 30°C strikes a target and just melts. Find the speed of impact. (c_Pb = 0.128 kJ/kg·K, T_melt = 327°C, L_f = 24.5 kJ/kg)",
+ opts:["353.6 m/s","280 m/s","400 m/s","320 m/s"],correct:0,
+ exp:"طاقة الحركة كلها تتحول لحرارة تسخين ثم إذابة الرصاصة (لكل كيلوجرام): <span class='formula'>½v² = c(T_melt−T₀) + L_f</span><br><span class='formula'>½v² = 128×297 + 24500 = 62516 → v ≈ 353.6 m/s</span>"},
+
+{topic:"specific-latent",diff:"hard",
+ q:"To cool an 85 kg person's body from 39°C to 36°C, ice at 0°C is used (melts and warms to body temp). Find the mass of ice needed. (c_body = 3.5 kJ/kg·K)",
+ opts:["1.85 kg","2.68 kg","1.20 kg","3.00 kg"],correct:0,
+ exp:"الحرارة المفقودة من الجسم = الحرارة المكتسبة من الثلج (إذابة + تسخين الماء الناتج):<br><span class='formula'>85×3.5×3 = m(333 + 4.186×36)</span> ⟶ <span class='formula'>m ≈ 1.85 kg</span>"},
+
+{topic:"specific-latent",diff:"hard",
+ q:"0.1 kg of steam at 100°C fully condenses and then cools to 60°C. Find the total heat released. (L_v = 2260 kJ/kg, c_water = 4.186 kJ/kg·K)",
+ opts:["242.7 kJ","226 kJ","16.7 kJ","260 kJ"],correct:0,
+ exp:"خطوتان: تكثف (latent) ثم تبريد (sensible):<br><span class='formula'>Q = mL_v + mcΔT = 0.1×2260 + 0.1×4.186×40 = 242.74 kJ</span>"},
+
+{topic:"specific-latent",diff:"medium",
+ q:"Calculate the heat required to convert 0.3 kg of ice at −10°C to water at 0°C. (c_ice = 2.09 kJ/kg·K, L_f = 333 kJ/kg)",
+ opts:["106.17 kJ","99.9 kJ","6.27 kJ","133 kJ"],correct:0,
+ exp:"تسخين الثلج الصلب أولاً ثم إذابته: <span class='formula'>Q = mc_iceΔT + mL_f = 0.3×2.09×10 + 0.3×333 = 106.17 kJ</span>"},
+
+// ---------------- IDEAL GAS (7) ----------------
+{topic:"ideal-gas",diff:"easy",
+ q:"Find the number of moles of gas in a 5 L vessel at 2 atm and 300 K.",
+ opts:["0.401 mol","0.2 mol","1.0 mol","2.5 mol"],correct:0,
+ exp:"من قانون الغاز المثالي <b>PV = nRT</b>: <span class='formula'>n = (2×10⁵×5×10⁻³)/(8.314×300) ≈ 0.401 mol</span>"},
+
+{topic:"ideal-gas",diff:"easy",
+ q:"Calculate the specific gas constant r for CO₂ (M = 44 g/mol).",
+ opts:["188.95 J/kg·K","8.314 J/kg·K","44 J/kg·K","376 J/kg·K"],correct:0,
+ exp:"<span class='formula'>r = R/M = 8.314/0.044 ≈ 188.95 J/kg·K</span>"},
+
+{topic:"ideal-gas",diff:"medium",
+ q:"Find the density of nitrogen gas (M = 28 g/mol) at 1 atm and 300 K.",
+ opts:["1.123 kg/m³","0.892 kg/m³","2.5 kg/m³","0.5 kg/m³"],correct:0,
+ exp:"من <span class='formula'>ρ = PM/RT = (10⁵×0.028)/(8.314×300) ≈ 1.123 kg/m³</span>"},
+
+{topic:"ideal-gas",diff:"medium",
+ q:"A tire at 200 kPa, 20°C is heated to 60°C at constant volume. Find the new pressure.",
+ opts:["227.3 kPa","200 kPa","260 kPa","180 kPa"],correct:0,
+ exp:"عملية isochoric (حجم ثابت): <span class='formula'>P₂ = P₁×T₂/T₁ = 200×333/293 ≈ 227.3 kPa</span>"},
+
+{topic:"ideal-gas",diff:"medium",
+ q:"3 moles of gas at 400 K occupy 0.05 m³. Find the pressure.",
+ opts:["≈1.995 bar","1.0 bar","3.0 bar","0.5 bar"],correct:0,
+ exp:"<span class='formula'>P = nRT/V = (3×8.314×400)/0.05 ≈ 1.995×10⁵ Pa</span>"},
+
+{topic:"ideal-gas",diff:"hard",
+ q:"Two connected bulbs (100 cm³ at 400 K, 200 cm³ at 300 K) are sealed together at 1 bar, 350 K total. A porous plug equalizes pressure but not temperature. Find the final common pressure.",
+ opts:["≈0.935 bar","1.0 bar","1.5 bar","0.5 bar"],correct:0,
+ exp:"نحسب n الكلي من الحالة الابتدائية، ثم نوزعه على الحجمين بضغط مشترك Pf لكن درجتي حرارة مختلفتين:<br><span class='formula'>P_f = nR / (V₁/T₁ + V₂/T₂) ≈ 0.935 bar</span>"},
+
+{topic:"ideal-gas",diff:"hard",
+ q:"In a vacuum system, pressure is 2×10⁻⁹ Pa. Find the number of molecules in a 2 m³ vessel at 300 K.",
+ opts:["≈9.66×10¹¹ molecules","1.6×10⁻¹² molecules","6.02×10²³ molecules","1×10¹⁰ molecules"],correct:0,
+ exp:"<span class='formula'>n = PV/RT = (2×10⁻⁹×2)/(8.314×300) ≈ 1.6×10⁻¹² mol</span>، ثم <span class='formula'>N = n×N_A ≈ 9.66×10¹¹</span>"},
+
+{topic:"ideal-gas",diff:"easy",
+ q:"The SI unit of the specific gas constant r (= R/M) is:",
+ opts:["J/kg·K","J/mol·K","kg/J·K","K/J"],correct:0,
+ exp:"بما أن R وحدتها J/mol·K وM وحدتها kg/mol، فإن <span class='formula'>r = R/M</span> وحدتها <b>J/kg·K</b>"},
+
+{topic:"ideal-gas",diff:"easy",
+ q:"According to the equipartition theorem, the average energy per degree of freedom per mole of gas is:",
+ opts:["½RT","RT","⅔RT","2RT"],correct:0,
+ exp:"<b>نظرية تساوي الطاقة (Equipartition Theorem)</b>: كل درجة حرية (translational/rotational) تحمل في المتوسط <span class='formula'>½RT</span> لكل مول، وبجمعها على عدد درجات الحرية f نحصل على <span class='formula'>U = (f/2)nRT</span>"},
+
+{topic:"ideal-gas",diff:"medium",
+ q:"At T=80 K, the translational internal energy of n moles of a gas is 600R and the rotational energy is 400R. What type of molecule is this?",
+ opts:["Diatomic","Monoatomic","Polyatomic (3 atoms, rigid)","Insufficient data"],correct:0,
+ exp:"الطاقة الانتقالية دائماً <span class='formula'>U_trans=(3/2)nRT=600R → n=5 mol</span>. ثم من الطاقة الدورانية: <span class='formula'>400R = n×(f_rot/2)×R×80 → f_rot=2</span>، وهذا يطابق الغاز <b>ثنائي الذرة (Diatomic)</b>."},
+
+{topic:"ideal-gas",diff:"medium",
+ q:"For the gas in the previous question (n=5 mol, T=80 K), find the total internal energy U.",
+ opts:["8314 J","4157 J","12471 J","2078 J"],correct:0,
+ exp:"الطاقة الداخلية الكلية = الانتقالية + الدورانية: <span class='formula'>U = 600R + 400R = 1000R = 1000×8.314 ≈ 8314 J</span>"},
+
+{topic:"ideal-gas",diff:"hard",
+ q:"One mole of oxygen (rigid bond) is heated from 27°C to 35°C. Find the change in the translational kinetic energy only (not the total internal energy).",
+ opts:["99.77 J","66.51 J","166.28 J","33.26 J"],correct:0,
+ exp:"الطاقة الانتقالية تستخدم دائماً f=3 بصرف النظر عن نوع الجزيء: <span class='formula'>ΔU_trans = (3/2)nRΔT = 1.5×8.314×8 ≈ 99.77 J</span>"},
+
+{topic:"ideal-gas",diff:"medium",
+ q:"A car tire is inflated to an absolute pressure of 300 kPa at 0°C (273 K). Assuming the tire's volume stays constant, find the absolute pressure at 50°C (323 K).",
+ opts:["≈354.95 kPa","300 kPa","400 kPa","250 kPa"],correct:0,
+ exp:"عملية isochoric (حجم ثابت): <span class='formula'>P₂ = P₁×T₂/T₁ = 300×323/273 ≈ 354.95 kPa</span>"},
+
+{topic:"ideal-gas",diff:"hard",
+ q:"For the same tire (P₁=300 kPa, T₁=273 K), if the tire's volume expands by 5% as it heats up to 323 K, find the new absolute pressure.",
+ opts:["≈338.0 kPa","354.95 kPa","300 kPa","320 kPa"],correct:0,
+ exp:"من <span class='formula'>P₁V₁/T₁ = P₂V₂/T₂</span>: <span class='formula'>P₂ = P₁×(V₁/V₂)×(T₂/T₁) = 300×(1/1.05)×(323/273) ≈ 338.0 kPa</span> (أقل من حالة الحجم الثابت لأن التمدد يخفف الزيادة في الضغط)"},
+
+// ---------------- FIRST LAW / WORK (7) ----------------
+{topic:"first-law",diff:"easy",
+ q:"A gas absorbs 500 J of heat and does 200 J of work on its surroundings. Find ΔU.",
+ opts:["300 J","700 J","−300 J","500 J"],correct:0,
+ exp:"القانون الأول <b>ΔU = Q − W</b> (W هو الشغل المبذول من الغاز): <span class='formula'>ΔU = 500 − 200 = 300 J</span>"},
+
+{topic:"first-law",diff:"easy",
+ q:"A gas releases 150 J of heat while 80 J of work is done ON the gas. Find ΔU.",
+ opts:["−70 J","70 J","−230 J","230 J"],correct:0,
+ exp:"Q = −150 J (يفقد)، والشغل المبذول من الغاز W = −80 J (لأن الشغل وارد على الغاز):<br><span class='formula'>ΔU = Q − W = −150 − (−80) = −70 J</span>"},
+
+{topic:"first-law",diff:"medium",
+ q:"2 moles of an ideal gas expand from 2 L to 6 L against a constant external pressure of 1 atm. Find the work done BY the gas.",
+ opts:["400 J","200 J","600 J","100 J"],correct:0,
+ exp:"شغل عند ضغط ثابت: <span class='formula'>W = PΔV = 10⁵×(6−2)×10⁻³ = 400 J</span>"},
+
+{topic:"first-law",diff:"medium",
+ q:"A gas goes from A(4 bar, 2 L) to C(4 bar, 8 L) isobarically, then from C to B(1 bar, 8 L) isochorically. Find the total work done by the gas.",
+ opts:["2400 J","1200 J","3200 J","800 J"],correct:0,
+ exp:"الشغل في المرحلة الأولى فقط (لأن المرحلة الثانية حجم ثابت = لا شغل):<br><span class='formula'>W = P×ΔV = 4×10⁵×(8−2)×10⁻³ = 2400 J</span>"},
+
+{topic:"first-law",diff:"hard",
+ q:"A monoatomic gas goes from A(5 bar, 3 L) to B(2 bar, 6 L) via: expansion at constant 5 bar to 6 L, then constant volume drop to 2 bar. Given ΔU_AB = −450 J, find the net heat Q.",
+ opts:["1050 J","1500 J","−450 J","600 J"],correct:0,
+ exp:"الشغل في الجزء الأول فقط (الثاني حجم ثابت): <span class='formula'>W = 5×10⁵×(6−3)×10⁻³ = 1500 J</span><br>ومن القانون الأول: <span class='formula'>Q = ΔU + W = −450 + 1500 = 1050 J</span>"},
+
+{topic:"first-law",diff:"hard",
+ q:"Same states as the previous question (ΔU = −450 J), but the gas follows a path where P decreases linearly with V from A to B. Find Q.",
+ opts:["600 J","1050 J","−450 J","1500 J"],correct:0,
+ exp:"الشغل هنا = المساحة تحت الخط المستقيم (شبه منحرف):<br><span class='formula'>W = ½(P₁+P₂)(V₂−V₁) = ½(5+2)×10⁵×3×10⁻³ = 1050 J</span><br><span class='formula'>Q = ΔU + W = −450 + 1050 = 600 J</span>"},
+
+{topic:"first-law",diff:"hard",
+ q:"Two equal rigid containers (monoatomic gas) with n₁=2 mol at 300 K and n₂=3 mol at 500 K are connected and the valve opened (no heat exchange, no external work). Find the final temperature.",
+ opts:["420 K","400 K","450 K","380 K"],correct:0,
+ exp:"بما أن الطاقة الداخلية الكلية تُحفظ (لا شغل ولا حرارة): <span class='formula'>n₁T₁+n₂T₂ = (n₁+n₂)T_f</span><br><span class='formula'>T_f = (2×300+3×500)/5 = 420 K</span>"},
+
+{topic:"first-law",diff:"easy",
+ q:"Which expression correctly states the first law of thermodynamics?",
+ opts:["Q = ΔU + W","Q = W − ΔU","ΔU = Q + W","W = Q + ΔU"],correct:0,
+ exp:"الصياغة الأكثر شيوعاً للقانون الأول: الحرارة الداخلة للنظام تتوزع بين زيادة الطاقة الداخلية والشغل المبذول من النظام: <span class='formula'>Q = ΔU + W</span>"},
+
+{topic:"first-law",diff:"medium",
+ q:"For an isobaric process (mass m, specific heat c_p), the heat absorbed Q can be written as:",
+ opts:["mc_pΔT","mc_vΔT","mc_vΔT − PΔV","0"],correct:0,
+ exp:"في العملية عند ضغط ثابت، الحرارة المتبادلة تُحسب مباشرة باستخدام السعة الحرارية عند ضغط ثابت: <span class='formula'>Q = mc_pΔT</span>"},
+
+{topic:"first-law",diff:"easy",
+ q:"The SI unit of mechanical work W in thermodynamics is:",
+ opts:["J","J/K","W (Watt)","N"],correct:0,
+ exp:"الشغل طاقة، فوحدته هي وحدة الطاقة القياسية <b>J (Joule)</b>، وليس W (Watt) الذي هو وحدة القدرة (Power = J/s)"},
+
+// ---------------- PROCESSES (27: isochoric5, isobaric5, isothermal5, adiabatic7, polytropic5) ----------------
+{topic:"processes",diff:"easy",
+ q:"In an isochoric (constant-volume) process, the mechanical work W done by the gas is:",
+ opts:["0","nRΔT","PΔV","nRT ln(Vf/Vi)"],correct:0,
+ exp:"عملية <b>Isochoric</b> أي الحجم ثابت (ΔV=0) ⟶ <span class='formula'>W = PΔV = 0</span>"},
+
+{topic:"processes",diff:"easy",
+ q:"2 mol of a monoatomic gas is heated isochorically with ΔT = 50 K. Find Q.",
+ opts:["1247.1 J","2078.5 J","623.55 J","831.4 J"],correct:0,
+ exp:"عند حجم ثابت: <span class='formula'>Q = nC_vΔT</span>، وللغاز أحادي الذرة <span class='formula'>C_v = (3/2)R</span><br><span class='formula'>Q = 2×12.47×50 = 1247.1 J</span>"},
+
+{topic:"processes",diff:"medium",
+ q:"3 mol of a diatomic (rigid) gas is cooled isochorically, releasing 5000 J. Find ΔT.",
+ opts:["≈80.2 K decrease","40.1 K decrease","120 K decrease","60 K decrease"],correct:0,
+ exp:"للغاز ثنائي الذرة الصلب الرابطة: <span class='formula'>C_v = (5/2)R = 20.785 J/mol·K</span><br><span class='formula'>ΔT = Q/(nC_v) = −5000/(3×20.785) ≈ −80.2 K</span>"},
+
+{topic:"processes",diff:"medium",
+ q:"4 mol of a monoatomic gas undergoes an isochoric process from 300 K to 450 K. Find ΔS.",
+ opts:["20.2 J/K","10.1 J/K","40.4 J/K","5.0 J/K"],correct:0,
+ exp:"عند حجم ثابت: <span class='formula'>ΔS = nC_v ln(T₂/T₁) = 4×12.47×ln(1.5) ≈ 20.2 J/K</span>"},
+
+{topic:"processes",diff:"hard",
+ q:"An ideal monoatomic gas cools from 455 K to 275 K at constant volume, rejecting 29.18 kJ of heat. Find the number of moles.",
+ opts:["13.0 mol","8.5 mol","19.5 mol","5.6 mol"],correct:0,
+ exp:"<span class='formula'>Q = nC_vΔT ⟶ n = Q/(C_v×ΔT) = −29180/(12.47×(275−455)) = 13.0 mol</span>"},
+
+{topic:"processes",diff:"easy",
+ q:"In an isobaric (constant-pressure) process, the mechanical work done by the gas is given by:",
+ opts:["nRΔT","0","nCvΔT","nRT ln(Pi/Pf)"],correct:0,
+ exp:"عند ضغط ثابت: <span class='formula'>W = PΔV = nRΔT</span> (من قانون الغاز المثالي)"},
+
+{topic:"processes",diff:"easy",
+ q:"2 mol of a diatomic gas is heated isobarically with ΔT = 20 K. Find the work done by the gas.",
+ opts:["332.56 J","166.3 J","498.8 J","83.1 J"],correct:0,
+ exp:"<span class='formula'>W = nRΔT = 2×8.314×20 = 332.56 J</span>"},
+
+{topic:"processes",diff:"medium",
+ q:"3 mol of a monoatomic gas absorbs 2000 J in an isobaric process. Find ΔT.",
+ opts:["32.07 K","16.0 K","64.1 K","48.0 K"],correct:0,
+ exp:"<span class='formula'>C_p = (5/2)R = 20.785 J/mol·K</span><br><span class='formula'>ΔT = Q/(nC_p) = 2000/(3×20.785) ≈ 32.07 K</span>"},
+
+{topic:"processes",diff:"medium",
+ q:"For the previous question (n=3 mol monoatomic, isobaric, Q=2000 J, ΔT=32.07 K), find ΔU.",
+ opts:["1200 J","800 J","2000 J","400 J"],correct:0,
+ exp:"<span class='formula'>ΔU = nC_vΔT = Q×(C_v/C_p) = 2000×(3/5) = 1200 J</span>"},
+
+{topic:"processes",diff:"hard",
+ q:"4 mol of a diatomic (rigid) gas at 300 K (V=10 L) expands isobarically to V=25 L. Find the heat absorbed.",
+ opts:["52.38 kJ","14.97 kJ","37.4 kJ","20.96 kJ"],correct:0,
+ exp:"بما أن الضغط ثابت: <span class='formula'>T₂ = T₁×V₂/V₁ = 300×2.5 = 750 K</span><br><span class='formula'>Q = nC_pΔT = 4×(7/2×8.314)×450 ≈ 52.38 kJ</span>"},
+
+{topic:"processes",diff:"easy",
+ q:"In an isothermal process for an ideal gas, the change in internal energy ΔU equals:",
+ opts:["0","nCvΔT","nCpΔT","Q − PΔV"],correct:0,
+ exp:"في الغاز المثالي، الطاقة الداخلية تعتمد على درجة الحرارة فقط، وبما أن T ثابتة: <span class='formula'>ΔU = 0</span>"},
+
+{topic:"processes",diff:"medium",
+ q:"2 mol of a gas at 300 K expands isothermally from V₁=5 L to V₂=15 L. Find the work done by the gas.",
+ opts:["5478.3 J","2739.2 J","1825.5 J","8217.5 J"],correct:0,
+ exp:"<span class='formula'>W = nRT ln(V₂/V₁) = 2×8.314×300×ln3 ≈ 5478.3 J</span>"},
+
+{topic:"processes",diff:"medium",
+ q:"For the previous question, find the heat Q absorbed by the gas.",
+ opts:["5478.3 J","0 J","2739.2 J","−5478.3 J"],correct:0,
+ exp:"بما أن ΔU=0 في العملية الإيزوثرمالية: <span class='formula'>Q = W = 5478.3 J</span>"},
+
+{topic:"processes",diff:"hard",
+ q:"1 mol of a gas at 400 K is compressed isothermally from P₁=1 bar to P₂=5 bar. Find the heat released.",
+ opts:["5352.3 J","3325.6 J","1609 J","8000 J"],correct:0,
+ exp:"<span class='formula'>W = nRT ln(P₁/P₂) = 8.314×400×ln(0.2) ≈ −5352.3 J</span>، وبما أن ΔU=0 ⟶ <span class='formula'>Q = W = −5352.3 J</span> (مفقودة)"},
+
+{topic:"processes",diff:"hard",
+ q:"3 mol of a gas at 350 K undergoes an isothermal process releasing 4000 J of heat. Find the ratio Vf/Vi.",
+ opts:["0.632","1.58","0.316","2.0"],correct:0,
+ exp:"<span class='formula'>Q = W = nRT ln(Vf/Vi) ⟶ ln(Vf/Vi) = −4000/(3×8.314×350) ≈ −0.458</span><br><span class='formula'>Vf/Vi = e^(−0.458) ≈ 0.632</span>"},
+
+{topic:"processes",diff:"easy",
+ q:"In an adiabatic process, Q = 0. The mechanical work done by the gas equals:",
+ opts:["−nCvΔT","nRΔT","nRT ln(Vf/Vi)","PΔV"],correct:0,
+ exp:"بما أن Q=0، من القانون الأول: <span class='formula'>W = −ΔU = −nC_vΔT</span>"},
+
+{topic:"processes",diff:"easy",
+ q:"For a diatomic gas with a fixed (rigid) bond, the value of γ (Cp/Cv) is:",
+ opts:["1.4","1.67","1.33","1.0"],correct:0,
+ exp:"<span class='formula'>C_v = 5R/2, C_p = 7R/2 ⟶ γ = Cp/Cv = 7/5 = 1.4</span>"},
+
+{topic:"processes",diff:"medium",
+ q:"A monoatomic gas at 300 K is compressed adiabatically to half its initial volume. Find the final temperature. (γ = 5/3)",
+ opts:["476.2 K","600 K","421.3 K","300 K"],correct:0,
+ exp:"<span class='formula'>T₂ = T₁(V₁/V₂)^(γ−1) = 300×2^(2/3) ≈ 476.2 K</span>"},
+
+{topic:"processes",diff:"medium",
+ q:"A diatomic (rigid) gas at 300 K, 1 atm is compressed adiabatically to 8 atm. Find the final temperature.",
+ opts:["543.5 K","600 K","450 K","700 K"],correct:0,
+ exp:"<span class='formula'>T₂/T₁ = (P₂/P₁)^((γ−1)/γ) = 8^(2/7) ≈ 1.812</span><br><span class='formula'>T₂ = 300×1.812 ≈ 543.5 K</span>"},
+
+{topic:"processes",diff:"hard",
+ q:"5 mol of a monoatomic gas expands adiabatically from 500 K to 350 K. Find the work done by the gas.",
+ opts:["9353 J","6235 J","12471 J","4677 J"],correct:0,
+ exp:"<span class='formula'>W = −ΔU = −nC_vΔT = −5×12.47×(350−500) ≈ 9353 J</span>"},
+
+{topic:"processes",diff:"hard",
+ q:"2 mol of a diatomic (rigid) gas at 300 K is compressed adiabatically from 4 L to 2 L. Find the work done ON the gas.",
+ opts:["3984 J","1992 J","5976 J","2982 J"],correct:0,
+ exp:"<span class='formula'>T₂ = 300×2^0.4 ≈ 395.85 K</span><br>الشغل المبذول من الغاز سالب (انضغاط): <span class='formula'>W_by = −nC_vΔT ≈ −3984 J</span> ⟶ الشغل على الغاز = <b>3984 J</b>"},
+
+{topic:"processes",diff:"hard",
+ q:"A gas with γ = 1.3 (P₁=2 bar, V₁=10 L) is compressed adiabatically to V₂=4 L. Find P₂.",
+ opts:["≈6.58 bar","5.0 bar","8.0 bar","4.5 bar"],correct:0,
+ exp:"<span class='formula'>P₂ = P₁(V₁/V₂)^γ = 2×(2.5)^1.3 ≈ 6.58 bar</span>"},
+
+{topic:"processes",diff:"easy",
+ q:"For a polytropic process PVˣ = constant, the relation between T and V is:",
+ opts:["T₁V₁^(x−1) = T₂V₂^(x−1)","T₁V₁ˣ = T₂V₂ˣ","T₁/V₁ = T₂/V₂","T₁Vₓ = T₂/Vₓ"],correct:0,
+ exp:"بمقارنة <span class='formula'>PV = nRT</span> مع <span class='formula'>PVˣ = const</span> نحصل على: <span class='formula'>TV^(x−1) = constant</span>"},
+
+{topic:"processes",diff:"medium",
+ q:"2 mol of a gas follows PV^1.2 = constant. Starting at T₁=300 K, the volume is halved. Find T₂.",
+ opts:["344.6 K","360 K","600 K","258 K"],correct:0,
+ exp:"<span class='formula'>T₂ = T₁(V₁/V₂)^(x−1) = 300×2^0.2 ≈ 344.6 K</span>"},
+
+{topic:"processes",diff:"medium",
+ q:"1 kg of air follows P·V^1.25=const, compressed from 1 bar, 300 K to 5 bar. Find the final temperature.",
+ opts:["413.9 K","450 K","375 K","500 K"],correct:0,
+ exp:"<span class='formula'>T₂/T₁ = (P₂/P₁)^((x−1)/x) = 5^0.2 ≈ 1.3797</span><br><span class='formula'>T₂ = 300×1.3797 ≈ 413.9 K</span>"},
+
+{topic:"processes",diff:"hard",
+ q:"4 mol of a monoatomic gas undergoes a polytropic process PVˣ=const. Temperature rises from 320 K to 1280 K while volume is halved. Find x.",
+ opts:["3","2","4","1.5"],correct:0,
+ exp:"<span class='formula'>320×V₁^(x−1) = 1280×(V₁/2)^(x−1)</span> ⟶ <span class='formula'>(1/2)^(x−1) = 0.25 = (1/2)²</span> ⟶ <b>x = 3</b>"},
+
+{topic:"processes",diff:"hard",
+ q:"Air following PV^1.3=const is compressed from 1.1 bar, 300 K to 6.6 bar. Find the final temperature.",
+ opts:["453.7 K","500 K","400 K","600 K"],correct:0,
+ exp:"<span class='formula'>T₂/T₁ = (P₂/P₁)^((x−1)/x) = 6^0.2308 ≈ 1.5123</span><br><span class='formula'>T₂ ≈ 453.7 K</span>"},
+
+{topic:"processes",diff:"easy",
+ q:"In an isothermal process, the change in internal energy ΔU of an ideal gas is:",
+ opts:["0","Q","W","nCpΔT"],correct:0,
+ exp:"تكرار للتأكيد: الطاقة الداخلية للغاز المثالي تعتمد على T فقط، وبثبوتها <span class='formula'>ΔU = 0</span>"},
+
+{topic:"processes",diff:"easy",
+ q:"For an adiabatic process, the relation between T and P is given by:",
+ opts:["T₂/T₁ = (P₂/P₁)^((γ−1)/γ)","T₂/T₁ = (P₂/P₁)^γ","T₂/T₁ = (P₁/P₂)^((γ−1)/γ)","T₂/T₁ = P₂/P₁"],correct:0,
+ exp:"العلاقة الصحيحة بين T وP في العملية الأديباتية: <span class='formula'>T₂/T₁ = (P₂/P₁)^((γ−1)/γ)</span> (يمكن اشتقاقها من دمج PV^γ=const مع PV=nRT)"},
+
+{topic:"processes",diff:"easy",
+ q:"For a triatomic gas with fixed (rigid) bonds, the value of γ is:",
+ opts:["4/3","5/3","7/5","1.0"],correct:0,
+ exp:"للغاز ثلاثي الذرة صلب الروابط: <span class='formula'>f=6 → C_v=3R, C_p=4R → γ=C_p/C_v=4/3</span>"},
+
+{topic:"processes",diff:"easy",
+ q:"The SI unit of molar specific heat (C_v or C_p) is:",
+ opts:["J/mol·K","J/kg·K","J/K","J"],correct:0,
+ exp:"بما أن C_v وC_p معرّفتان لكل مول من الغاز: <span class='formula'>Q = nCΔT</span>، فوحدتهما <b>J/mol·K</b> (بخلاف c الصغيرة للحرارة النوعية التي وحدتها J/kg·K)"},
+
+{topic:"processes",diff:"medium",
+ q:"If the rotational degrees of freedom of a gas molecule are 2, the gas is:",
+ opts:["Diatomic","Monoatomic","Polyatomic (triatomic, rigid)","Insufficient data"],correct:0,
+ exp:"عدد درجات الحرية الدورانية f_rot=2 يميّز الغاز <b>ثنائي الذرة (Diatomic)</b>، بينما أحادي الذرة f_rot=0 وثلاثي الذرة الصلب f_rot=3"},
+
+// ---------------- CYCLES (10) ----------------
+{topic:"cycles",diff:"medium",
+ q:"A rectangular PV cycle: A(1 bar,2 L)→B(1 bar,6 L)→C(3 bar,6 L)→D(3 bar,2 L)→A (clockwise). Find the net work done by the gas per cycle.",
+ opts:["800 J","400 J","1600 J","200 J"],correct:0,
+ exp:"الشغل الصافي في الدورة = المساحة المحصورة في مخطط PV:<br><span class='formula'>W_net = ΔP×ΔV = (3−1)×10⁵×(6−2)×10⁻³ = 800 J</span>"},
+
+{topic:"cycles",diff:"medium",
+ q:"A triangular cycle A(1 bar,1 L)→B(4 bar,1 L)→C(4 bar,4 L)→A. Find the net work per cycle (clockwise).",
+ opts:["450 J","900 J","225 J","1350 J"],correct:0,
+ exp:"المساحة = مساحة المثلث القائم: <span class='formula'>W = ½×ΔP×ΔV = ½×3×10⁵×3×10⁻³ = 450 J</span>"},
+
+{topic:"cycles",diff:"hard",
+ q:"A monoatomic gas cycle: A(2 bar,1 L,300 K)→B isochoric heating to 6 bar→C adiabatic expansion→back to A isobarically. Find T_B.",
+ opts:["900 K","600 K","450 K","1200 K"],correct:0,
+ exp:"عملية isochoric: <span class='formula'>T_B = T_A×P_B/P_A = 300×3 = 900 K</span>"},
+
+{topic:"cycles",diff:"hard",
+ q:"For the cycle above (state A: 2 bar, 1 L, 300 K), find the number of moles n.",
+ opts:["≈0.0802 mol","0.0401 mol","0.1604 mol","0.2 mol"],correct:0,
+ exp:"<span class='formula'>n = P_AV_A/(RT_A) = (2×10⁵×10⁻³)/(8.314×300) ≈ 0.0802 mol</span>"},
+
+{topic:"cycles",diff:"hard",
+ q:"Continuing the same cycle, B(6 bar,1 L,900 K) expands adiabatically until pressure drops to 2 bar (γ=5/3). Find the final volume V_C.",
+ opts:["≈1.93 L","3.0 L","1.5 L","2.5 L"],correct:0,
+ exp:"<span class='formula'>V_C = V_B(P_B/P_C)^(1/γ) = 1×(3)^0.6 ≈ 1.93 L</span>"},
+
+{topic:"cycles",diff:"hard",
+ q:"For the same adiabatic expansion B→C (T_B=900 K, V_B=1 L, V_C≈1.93 L, γ=5/3), find T_C.",
+ opts:["≈579.8 K","450 K","700 K","500 K"],correct:0,
+ exp:"<span class='formula'>T_C = T_B(V_B/V_C)^(γ−1) = 900×(1/1.93)^(2/3) ≈ 579.8 K</span>"},
+
+{topic:"cycles",diff:"medium",
+ q:"A heat cycle absorbs Qin=500 J and produces Wnet=125 J. Find the efficiency η.",
+ opts:["25%","40%","15%","50%"],correct:0,
+ exp:"<span class='formula'>η = W_net/Q_in = 125/500 = 25%</span>"},
+
+{topic:"cycles",diff:"medium",
+ q:"A cycle absorbs Qin=900 J and rejects Qout=600 J. Find the efficiency η.",
+ opts:["33.3%","66.7%","25%","50%"],correct:0,
+ exp:"<span class='formula'>W_net = Q_in − Q_out = 300 J</span><br><span class='formula'>η = 300/900 ≈ 33.3%</span>"},
+
+{topic:"cycles",diff:"hard",
+ q:"A claimed heat engine absorbs Qh=600 kJ from a 500 K reservoir, rejects Ql=250 kJ to a 150 K reservoir, doing W=350 kJ. Check both laws of thermodynamics.",
+ opts:["Satisfies both 1st and 2nd law","Violates the 1st law","Violates the 2nd law","Violates both laws"],correct:0,
+ exp:"<b>القانون الأول</b>: <span class='formula'>Qh = W+Ql → 600=350+250 ✓</span><br><b>القانون الثاني</b>: <span class='formula'>η_actual=350/600≈58.3%</span> و <span class='formula'>η_Carnot=1−150/500=70%</span>، وبما أن η_actual أقل من η_Carnot، فالمحرك ممكن فعلاً ولا يخالف أي قانون."},
+
+{topic:"cycles",diff:"easy",
+ q:"True or False: The net work done by a gas in one complete cycle equals the area enclosed by the cycle on a PV diagram.",
+ opts:["True","False","Only for Carnot cycles","Only for isothermal cycles"],correct:0,
+ exp:"هذه خاصية أساسية: المساحة المحصورة داخل أي دورة على مخطط P-V تمثل الشغل الصافي الكلي للدورة، بصرف النظر عن نوع العمليات."},
+
+{topic:"cycles",diff:"hard",
+ q:"A heat engine operates between Th=1000 K and Tl=540 K. It absorbs Qh=500 kJ, does W=200 kJ, and rejects Ql=300 kJ. Check both laws.",
+ opts:["Satisfies both laws (possible)","Violates the 1st law","Violates the 2nd law","Violates both laws"],correct:0,
+ exp:"<b>أولاً</b>: <span class='formula'>Qh=W+Ql → 500=200+300 ✓</span><br><b>ثانياً</b>: <span class='formula'>η_actual=200/500=40%</span> و<span class='formula'>η_Carnot=1−540/1000=46%</span>، وبما أن η_actual أقل، فالمحرك ممكن ولا يخالف أي قانون."},
+
+{topic:"cycles",diff:"hard",
+ q:"Another claimed engine operates between Th=1000 K and Tl=540 K, absorbing Qh=500 kJ, doing W=250 kJ, and rejecting Ql=300 kJ. Check the laws.",
+ opts:["Violates the 1st law (energy not conserved)","Satisfies both laws","Violates the 2nd law only","Violates the 2nd law (exceeds Carnot limit)"],correct:0,
+ exp:"<span class='formula'>Qh should = W+Ql = 250+300 = 550 kJ ≠ 500 kJ</span>، أي أن الطاقة المعطاة غير متوازنة من الأساس، فالمحرك المزعوم <b>يخالف القانون الأول</b> قبل حتى فحص الكفاءة."},
+
+// ---------------- CARNOT / HE&R (12) ----------------
+{topic:"carnot",diff:"easy",
+ q:"The efficiency of a Carnot engine operating between Th and Tl is given by:",
+ opts:["1 − Tl/Th","Tl/Th","1 + Tl/Th","Th/Tl"],correct:0,
+ exp:"معادلة كفاءة كارنو الأساسية: <span class='formula'>η = 1 − T_l/T_h</span> (درجات الحرارة بالكلفن دائماً)"},
+
+{topic:"carnot",diff:"easy",
+ q:"The coefficient of performance (COP) of a Carnot refrigerator is given by:",
+ opts:["Tl/(Th−Tl)","Th/(Th−Tl)","1 − Tl/Th","W/Ql"],correct:0,
+ exp:"<span class='formula'>COP_refrigerator = T_l/(T_h−T_l)</span>"},
+
+{topic:"carnot",diff:"medium",
+ q:"A Carnot engine operates between Th=600 K and Tl=300 K. Find the efficiency.",
+ opts:["50%","25%","75%","40%"],correct:0,
+ exp:"<span class='formula'>η = 1 − 300/600 = 50%</span>"},
+
+{topic:"carnot",diff:"medium",
+ q:"A Carnot refrigerator operates between Tl=250 K and Th=350 K. Find the COP.",
+ opts:["2.5","1.4","3.5","0.4"],correct:0,
+ exp:"<span class='formula'>COP = 250/(350−250) = 2.5</span>"},
+
+{topic:"carnot",diff:"medium",
+ q:"A Carnot engine (Th=500 K, Tl=300 K) absorbs 1000 J of heat. Find the work output.",
+ opts:["400 J","600 J","200 J","800 J"],correct:0,
+ exp:"<span class='formula'>η = 1−300/500 = 40%</span><br><span class='formula'>W = η×Qh = 0.4×1000 = 400 J</span>"},
+
+{topic:"carnot",diff:"hard",
+ q:"A heat engine has an efficiency equal to 0.6 of the Carnot efficiency, operating between 800 K and 400 K. Find the actual efficiency.",
+ opts:["30%","50%","20%","40%"],correct:0,
+ exp:"<span class='formula'>η_Carnot = 1−400/800 = 50%</span><br><span class='formula'>η_actual = 0.6×50% = 30%</span>"},
+
+{topic:"carnot",diff:"hard",
+ q:"For the engine above (η_actual=30%), if Qh=500 kJ per cycle, find the heat rejected.",
+ opts:["350 kJ","150 kJ","250 kJ","300 kJ"],correct:0,
+ exp:"<span class='formula'>W = 0.3×500 = 150 kJ</span><br><span class='formula'>Q_rejected = Qh−W = 500−150 = 350 kJ</span>"},
+
+{topic:"carnot",diff:"hard",
+ q:"A Carnot refrigerator operates between Tl=−10°C(263 K) and Th=30°C(303 K), absorbing Ql=200 kJ. Find the work needed.",
+ opts:["≈30.42 kJ","40 kJ","25 kJ","50 kJ"],correct:0,
+ exp:"<span class='formula'>COP = 263/(303−263) = 6.575</span><br><span class='formula'>W = Ql/COP = 200/6.575 ≈ 30.42 kJ</span>"},
+
+{topic:"carnot",diff:"hard",
+ q:"For the refrigerator above, find the heat rejected to the hot reservoir Qh.",
+ opts:["≈230.42 kJ","200 kJ","260 kJ","170.6 kJ"],correct:0,
+ exp:"<span class='formula'>Qh = Ql + W = 200 + 30.42 = 230.42 kJ</span>"},
+
+{topic:"carnot",diff:"medium",
+ q:"A refrigerator has COP=4 and removes 800 J per cycle from the cold space. Find the work input.",
+ opts:["200 J","400 J","100 J","3200 J"],correct:0,
+ exp:"<span class='formula'>W = Q/COP = 800/4 = 200 J</span>"},
+
+{topic:"carnot",diff:"hard",
+ q:"A Carnot engine operates between Th=1173 K (900°C) and Tl=313 K (40°C), absorbing 4000 J. Find the work output.",
+ opts:["≈2932.8 J","2000 J","3500 J","1500 J"],correct:0,
+ exp:"<span class='formula'>η = 1 − 313/1173 ≈ 0.733</span><br><span class='formula'>W = η×Qh ≈ 2932.8 J</span>"},
+
+{topic:"carnot",diff:"hard",
+ q:"A Carnot refrigerator removes Ql=500 kJ at Tl=10°C(283 K) and rejects to Th=40°C(313 K). Find the work required.",
+ opts:["≈53.0 kJ","40 kJ","65 kJ","47 kJ"],correct:0,
+ exp:"<span class='formula'>COP = 283/(313−283) ≈ 9.43</span><br><span class='formula'>W = Ql/COP = 500/9.43 ≈ 53.0 kJ</span>"},
+
+{topic:"carnot",diff:"easy",
+ q:"The efficiency of any real heat engine operating between Th and Tl satisfies:",
+ opts:["η ≤ 1 − Tl/Th","η = 1 − Tl/Th always","η ≥ 1 − Tl/Th","η = Tl/Th"],correct:0,
+ exp:"كفاءة كارنو هي <b>الحد الأقصى النظري</b> بين أي درجتي حرارة، وأي محرك حقيقي كفاءته أقل أو تساوي هذا الحد: <span class='formula'>η ≤ η_Carnot = 1 − Tl/Th</span>"},
+
+{topic:"carnot",diff:"easy",
+ q:"The COP (Coefficient of Performance) of a refrigerator is defined as:",
+ opts:["Ql/W","Qh/W","W/Ql","1 − Ql/Qh"],correct:0,
+ exp:"معامل أداء الثلاجة = الحرارة المُمتصة من الفراغ البارد ÷ الشغل المبذول: <span class='formula'>COP = Ql/W</span>"},
+
+{topic:"carnot",diff:"easy",
+ q:"The SI unit of the Coefficient of Performance (COP) is:",
+ opts:["No unit (dimensionless)","J/K","W","K/W"],correct:0,
+ exp:"بما أن COP نسبة بين كميتين من نفس وحدة الطاقة (J/J)، فهو <b>بلا وحدة</b> (dimensionless)"},
+
+{topic:"carnot",diff:"hard",
+ q:"A claimed engine operates between Th=800 K and Tl=300 K, absorbing Qh=600 kJ and rejecting Ql=200 kJ (W=400 kJ). Check both laws.",
+ opts:["Violates the 2nd law (efficiency exceeds Carnot limit)","Satisfies both laws","Violates the 1st law","Violates both laws"],correct:0,
+ exp:"<b>أولاً</b>: <span class='formula'>600=400+200 ✓</span><br><b>ثانياً</b>: <span class='formula'>η_actual=400/600≈66.7%</span> لكن <span class='formula'>η_Carnot=1−300/800=62.5%</span>. بما أن η_actual أكبر من η_Carnot، فهذا <b>مستحيل ويخالف القانون الثاني</b>."},
+
+// ---------------- ENTROPY (7) ----------------
+{topic:"entropy",diff:"easy",
+ q:"The change in entropy ΔS for a reversible adiabatic process is:",
+ opts:["0","Q/T","mcΔT","nR ln(Vf/Vi)"],correct:0,
+ exp:"بما أن العملية انعكاسية وعديمة الحرارة (Q=0 وعكوسة): <span class='formula'>ΔS = 0</span>"},
+
+{topic:"entropy",diff:"medium",
+ q:"3 mol of a monoatomic gas changes isochorically from 300 K to 600 K. Find ΔS.",
+ opts:["25.93 J/K","12.97 J/K","51.86 J/K","8.65 J/K"],correct:0,
+ exp:"<span class='formula'>ΔS = nC_v ln(T₂/T₁) = 3×12.47×ln2 ≈ 25.93 J/K</span>"},
+
+{topic:"entropy",diff:"medium",
+ q:"2 mol of a monoatomic gas cools isobarically from 400 K to 300 K. Find ΔS.",
+ opts:["−11.96 J/K","11.96 J/K","−23.9 J/K","−5.98 J/K"],correct:0,
+ exp:"<span class='formula'>ΔS = nC_p ln(T₂/T₁) = 2×20.785×ln(0.75) ≈ −11.96 J/K</span>"},
+
+{topic:"entropy",diff:"medium",
+ q:"1 mol of gas expands isothermally from 2 L to 8 L. Find ΔS.",
+ opts:["11.53 J/K","5.76 J/K","23.05 J/K","2.88 J/K"],correct:0,
+ exp:"<span class='formula'>ΔS = nR ln(V₂/V₁) = 8.314×ln4 ≈ 11.53 J/K</span>"},
+
+{topic:"entropy",diff:"hard",
+ q:"5 kg of ice melts completely at 0°C (273 K). Find the entropy change. (L_f=333 kJ/kg)",
+ opts:["≈6.099 kJ/K","3.05 kJ/K","12.2 kJ/K","1.83 kJ/K"],correct:0,
+ exp:"عملية تغير الحالة عند درجة حرارة ثابتة: <span class='formula'>ΔS = mL_f/T = (5×333000)/273 ≈ 6099 J/K</span>"},
+
+{topic:"entropy",diff:"hard",
+ q:"2 kg of water cools from 80°C(353 K) to 20°C(293 K). Find the entropy change of the water.",
+ opts:["−1.56 kJ/K","1.56 kJ/K","−3.12 kJ/K","−0.78 kJ/K"],correct:0,
+ exp:"<span class='formula'>ΔS = mc ln(Tf/Ti) = 2×4.186×ln(293/353) ≈ −1.56 kJ/K</span>"},
+
+{topic:"entropy",diff:"hard",
+ q:"2 mol of a monoatomic gas changes from (300 K, 5 L) to (600 K, 15 L). Find the total ΔS.",
+ opts:["≈35.55 J/K","17.78 J/K","53.3 J/K","9.0 J/K"],correct:0,
+ exp:"تستخدم المعادلة العامة للإنتروبي (تغير الحجم والحرارة معاً):<br><span class='formula'>ΔS = nC_v ln(T₂/T₁) + nR ln(V₂/V₁) ≈ 17.29 + 18.26 ≈ 35.55 J/K</span>"},
+
+{topic:"entropy",diff:"easy",
+ q:"The general equation for the change in entropy ΔS of an ideal gas (mass m, specific heat c_v, gas constant r) is:",
+ opts:["ΔS = mc_v ln(Tf/Ti) + mr ln(Vf/Vi)","ΔS = mc_p ln(Tf/Ti)","ΔS = W/T","ΔS = mcΔT"],correct:0,
+ exp:"الصيغة العامة بدلالة الكتلة (وليس عدد المولات) تجمع أثر تغير الحرارة وتغير الحجم معاً: <span class='formula'>ΔS = mc_v ln(Tf/Ti) + mr ln(Vf/Vi)</span>"},
+
+{topic:"entropy",diff:"easy",
+ q:"ΔS = 0 always describes which type of process?",
+ opts:["A reversible adiabatic process","Any isothermal process","Any isobaric process","Any process with Q≠0"],correct:0,
+ exp:"بما أن <span class='formula'>dS = dQ_rev/T</span>، فالعملية الأديباتية الانعكاسية (Q=0 وعكوسة) هي الوحيدة التي تحقق <span class='formula'>ΔS=0</span> بشكل عام (وليس الإيزوثرمال أو الإيزوباريك التي تتغير فيها الإنتروبي عادةً)"},
+
+{topic:"entropy",diff:"easy",
+ q:"The SI unit of entropy S is:",
+ opts:["J/K","J","K/J","No unit"],correct:0,
+ exp:"من <span class='formula'>ΔS = Q/T</span> (وحدة الحرارة J ÷ وحدة الحرارة K)، فوحدة الإنتروبي هي <b>J/K</b>"},
+
+// ---------------- HEAT CONDUCTION (8) ----------------
+{topic:"conduction",diff:"easy",
+ q:"The thermal resistance R of a material with thickness L, area A, conductivity k is given by:",
+ opts:["L/(kA)","kA/L","A/(kL)","kL/A"],correct:0,
+ exp:"بالتماثل مع قانون أوم: <span class='formula'>R_thermal = L/(kA)</span>"},
+
+{topic:"conduction",diff:"easy",
+ q:"The SI unit of thermal resistance is:",
+ opts:["K/W","W/K","J/K","W/(m·K)"],correct:0,
+ exp:"من <span class='formula'>dQ/dt = ΔT/R</span> نستنتج وحدة R هي <b>K/W</b>"},
+
+{topic:"conduction",diff:"medium",
+ q:"A copper rod (L=2 m, A=0.05 m², k=400 W/m·K) has ΔT=100 K across it. Find the heat flow rate.",
+ opts:["1000 W","500 W","2000 W","100 W"],correct:0,
+ exp:"<span class='formula'>R = L/(kA) = 2/(400×0.05) = 0.1 K/W</span><br><span class='formula'>Q̇ = ΔT/R = 100/0.1 = 1000 W</span>"},
+
+{topic:"conduction",diff:"medium",
+ q:"Two rods in series have R₁=0.05 K/W and R₂=0.1 K/W. The total ΔT=60 K. Find the heat flow rate.",
+ opts:["400 W","600 W","200 W","900 W"],correct:0,
+ exp:"في التوصيل على التسلسل (Series): <span class='formula'>R_total = R₁+R₂ = 0.15 K/W</span><br><span class='formula'>Q̇ = 60/0.15 = 400 W</span>"},
+
+{topic:"conduction",diff:"medium",
+ q:"The same two rods (R₁=0.05, R₂=0.1 K/W) are arranged in parallel. Find R_total.",
+ opts:["≈0.0333 K/W","0.15 K/W","0.075 K/W","0.0667 K/W"],correct:0,
+ exp:"في التوصيل بالتوازي (Parallel): <span class='formula'>1/R_total = 1/R₁+1/R₂ = 20+10 = 30 → R_total ≈ 0.0333 K/W</span>"},
+
+{topic:"conduction",diff:"hard",
+ q:"A composite wall has two layers in series: (k=0.8 W/m·K, L=0.02 m, A=10 m²) and (k=0.04 W/m·K, L=0.05 m, A=10 m²). With ΔT=40 K, find the heat flow rate.",
+ opts:["≈313.7 W","400 W","250 W","160 W"],correct:0,
+ exp:"<span class='formula'>R₁ = 0.02/(0.8×10) = 0.0025 K/W</span>, <span class='formula'>R₂ = 0.05/(0.04×10) = 0.125 K/W</span><br><span class='formula'>R_total = 0.1275 K/W ⟶ Q̇ = 40/0.1275 ≈ 313.7 W</span>"},
+
+{topic:"conduction",diff:"hard",
+ q:"For the composite wall above, if the outer surface is at 50°C, find the temperature at the junction between the two layers.",
+ opts:["≈49.22°C","45°C","30°C","20°C"],correct:0,
+ exp:"<span class='formula'>T_junction = T_outer − Q̇×R₁ = 50 − 313.7×0.0025 ≈ 49.22°C</span>"},
+
+{topic:"conduction",diff:"medium",
+ q:"A glass window (A=2 m², L=5 mm, k=0.8 W/m·K) has ΔT=20 K across it. Find the rate of heat flow.",
+ opts:["6400 W","3200 W","1600 W","8000 W"],correct:0,
+ exp:"<span class='formula'>R = L/(kA) = 0.005/(0.8×2) = 0.003125 K/W</span><br><span class='formula'>Q̇ = 20/0.003125 = 6400 W</span>"},
+
+{topic:"conduction",diff:"easy",
+ q:"The thermal resistance R of a material is mathematically analogous to which electrical quantity (Ohm's Law analogy)?",
+ opts:["Electrical resistance","Capacitance","Voltage","Current"],correct:0,
+ exp:"بالتماثل مع قانون أوم <span class='formula'>V=IR</span>، فإن <span class='formula'>ΔT=Q̇×R</span>، حيث R الحرارية تقابل المقاومة الكهربية تماماً."},
+
+{topic:"conduction",diff:"easy",
+ q:"The SI unit of thermal conductivity k is:",
+ opts:["W/m·K","W/K","K/W","J/m·K"],correct:0,
+ exp:"من <span class='formula'>Q̇ = kAΔT/L</span>: <span class='formula'>k = Q̇L/(AΔT)</span> → وحدتها <b>W/m·K</b>"},
+
+{topic:"conduction",diff:"easy",
+ q:"You are insulating a roof. Which material is the BEST insulator? (k in W/m·K): Aluminum=121, Asphalt=0.75, Cement=0.29, Cork=0.07",
+ opts:["Cork (0.07)","Cement (0.29)","Asphalt (0.75)","Aluminum (121)"],correct:0,
+ exp:"أفضل عازل حراري هو الذي له <b>أقل</b> معامل توصيل k، لأن <span class='formula'>R ∝ 1/k</span>؛ فكلما قلّ k زادت المقاومة الحرارية وقلّ تسرب الحرارة. هنا Cork له أقل قيمة."},
+
+{topic:"conduction",diff:"medium",
+ q:"Rank these wall materials from BEST to WORST insulator: Glass(k=0.8), Brick(k=0.08), Wood(k=0.6).",
+ opts:["Brick > Wood > Glass","Glass > Wood > Brick","Wood > Glass > Brick","Brick > Glass > Wood"],correct:0,
+ exp:"الترتيب من الأفضل عزلاً (أقل k) للأسوأ (أعلى k): <b>Brick(0.08) > Wood(0.6) > Glass(0.8)</b>"},
+
+{topic:"conduction",diff:"hard",
+ q:"A composite wall: Layer 1 is split into two parallel materials side-by-side — A(k=0.5 W/m·K, L=0.1 m, A=2 m²) and B(k=0.2 W/m·K, L=0.1 m, A=2 m²); then Layer 2 (full width, k=0.05 W/m·K, L=0.05 m, A=4 m²) in series after Layer 1. Find R_total.",
+ opts:["≈0.321 K/W","0.25 K/W","0.5 K/W","0.1 K/W"],correct:0,
+ exp:"<span class='formula'>R_A=0.1/(0.5×2)=0.1 K/W</span>, <span class='formula'>R_B=0.1/(0.2×2)=0.25 K/W</span> (بالتوازي):<br><span class='formula'>1/R_p=1/0.1+1/0.25=14 → R_p≈0.0714 K/W</span><br><span class='formula'>R₂=0.05/(0.05×4)=0.25 K/W</span> (بالتسلسل بعد R_p):<br><span class='formula'>R_total=0.0714+0.25≈0.321 K/W</span>"},
+
+{topic:"conduction",diff:"hard",
+ q:"For the composite wall above (R_total≈0.321 K/W), if ΔT=32.1 K across the whole wall, find the heat flow rate.",
+ opts:["100 W","50 W","200 W","150 W"],correct:0,
+ exp:"<span class='formula'>Q̇ = ΔT/R_total = 32.1/0.321 = 100 W</span>"},
+
+{topic:"conduction",diff:"medium",
+ q:"Three materials are connected in series with R₁=0.2 K/W, R₂=0.3 K/W, R₃=0.1 K/W. Find R_total.",
+ opts:["0.6 K/W","0.0545 K/W","0.3 K/W","1.0 K/W"],correct:0,
+ exp:"في التوصيل بالتسلسل، تُجمع المقاومات مباشرة: <span class='formula'>R_total = 0.2+0.3+0.1 = 0.6 K/W</span>"},
+
+{topic:"conduction",diff:"medium",
+ q:"Three identical resistances of R=0.3 K/W each are connected in parallel. Find R_total.",
+ opts:["0.1 K/W","0.9 K/W","0.3 K/W","0.03 K/W"],correct:0,
+ exp:"<span class='formula'>1/R_total = 3/0.3 = 10 → R_total = 0.1 K/W</span> (أقل من أصغر مقاومة منفردة، كما هو متوقع بالتوازي)"},
+
+// ---------------- SHM (12) ----------------
+{topic:"shm",diff:"easy",
+ q:"For x(t) = 5 sin(4t), what is the angular frequency ω?",
+ opts:["4 rad/s","5 rad/s","2 rad/s","8 rad/s"],correct:0,
+ exp:"في الصيغة العامة <span class='formula'>x = A sin(ωt)</span>، فإن المعامل المضروب في t هو ω مباشرة: <b>ω = 4 rad/s</b>"},
+
+{topic:"shm",diff:"easy",
+ q:"A particle has a period T = 0.5 s. Find its angular frequency ω.",
+ opts:["12.57 rad/s","6.28 rad/s","25.13 rad/s","3.14 rad/s"],correct:0,
+ exp:"<span class='formula'>ω = 2π/T = 2π/0.5 ≈ 12.57 rad/s</span>"},
+
+{topic:"shm",diff:"medium",
+ q:"A particle in SHM has A=0.1 m and ω=10 rad/s. Find the maximum acceleration a_max.",
+ opts:["10 m/s²","1 m/s²","100 m/s²","0.1 m/s²"],correct:0,
+ exp:"<span class='formula'>a_max = Aω² = 0.1×100 = 10 m/s²</span>"},
+
+{topic:"shm",diff:"medium",
+ q:"A 0.5 kg mass oscillates with ω=8 rad/s and A=0.2 m. Find the maximum force.",
+ opts:["6.4 N","3.2 N","12.8 N","1.6 N"],correct:0,
+ exp:"<span class='formula'>F_max = mAω² = 0.5×0.2×64 = 6.4 N</span>"},
+
+{topic:"shm",diff:"medium",
+ q:"A 2 kg mass undergoes SHM with vmax=12 m/s and Fmax=144 N. Find the angular frequency ω.",
+ opts:["6 rad/s","3 rad/s","12 rad/s","24 rad/s"],correct:0,
+ exp:"<span class='formula'>a_max = Fmax/m = 72 m/s²</span><br>وبما أن <span class='formula'>a_max = ω×v_max</span>: <span class='formula'>ω = 72/12 = 6 rad/s</span>"},
+
+{topic:"shm",diff:"medium",
+ q:"For the system above (ω=6 rad/s, vmax=12 m/s), find the amplitude A.",
+ opts:["2 m","1 m","4 m","0.5 m"],correct:0,
+ exp:"<span class='formula'>A = v_max/ω = 12/6 = 2 m</span>"},
+
+{topic:"shm",diff:"hard",
+ q:"A 1 kg mass oscillates with A=0.3 m and ω=5 rad/s. Find the total energy of the motion.",
+ opts:["1.125 J","2.25 J","0.5625 J","4.5 J"],correct:0,
+ exp:"<span class='formula'>E = ½mω²A² = ½×1×25×0.09 = 1.125 J</span>"},
+
+{topic:"shm",diff:"hard",
+ q:"For the system above (E=1.125 J, A=0.3 m, ω=5 rad/s), find the kinetic energy when x=0.15 m.",
+ opts:["≈0.844 J","0.281 J","1.125 J","0.563 J"],correct:0,
+ exp:"<span class='formula'>PE = ½mω²x² = ½×1×25×0.0225 = 0.281 J</span><br><span class='formula'>KE = E − PE = 1.125 − 0.281 ≈ 0.844 J</span>"},
+
+{topic:"shm",diff:"hard",
+ q:"For a particle with amplitude A=0.3 m, at what position x is KE = PE?",
+ opts:["≈0.212 m","0.15 m","0.3 m","0.106 m"],correct:0,
+ exp:"عند KE=PE، تكون <span class='formula'>PE = E/2</span> ، وبالتالي: <span class='formula'>x = A/√2 = 0.3/1.414 ≈ 0.212 m</span>"},
+
+{topic:"shm",diff:"hard",
+ q:"A displacement is given as y = 4sin(ωt) + 3cos(ωt) (cm). Find the resultant amplitude.",
+ opts:["5 cm","7 cm","1 cm","12 cm"],correct:0,
+ exp:"لجمع موجتين متعامدتين بالطور: <span class='formula'>A_resultant = √(4²+3²) = √25 = 5 cm</span>"},
+
+{topic:"shm",diff:"easy",
+ q:"The relation between acceleration a and displacement x in SHM is given by:",
+ opts:["a = −ω²x","a = ω²x","a = −ωx","a = −x/ω²"],correct:0,
+ exp:"هذه هي العلاقة التفاضلية الأساسية لـ SHM: <span class='formula'>a = d²x/dt² = −ω²x</span> (التسارع يتناسب عكسياً مع الإزاحة ودائماً في الاتجاه المعاكس لها)"},
+
+{topic:"shm",diff:"medium",
+ q:"A particle moves with maximum speed 50 m/s and maximum acceleration 5 m/s². Find the period of oscillation.",
+ opts:["≈62.83 s","31.4 s","15.7 s","94.2 s"],correct:0,
+ exp:"<span class='formula'>ω = a_max/v_max = 5/50 = 0.1 rad/s</span><br><span class='formula'>T = 2π/ω = 2π/0.1 ≈ 62.83 s</span>"},
+
+{topic:"shm",diff:"easy",
+ q:"The maximum potential energy of a body in SHM with amplitude y₀ is:",
+ opts:["½mω²y₀²","mω²y₀²","¼mω²y₀²","mωy₀"],correct:0,
+ exp:"عند أقصى إزاحة، السرعة تساوي صفر، فتكون كل الطاقة طاقة وضع، وهي تساوي الطاقة الكلية: <span class='formula'>PE_max = E = ½mω²A²</span>"},
+
+{topic:"shm",diff:"easy",
+ q:"The SI unit of angular frequency ω is:",
+ opts:["rad/s","Hz","s","rad"],correct:0,
+ exp:"بما أن ω تظهر داخل دالة الجيب كمعدل زاوي مع الزمن: <span class='formula'>x=A sin(ωt)</span> ، فوحدتها <b>rad/s</b>"},
+
+{topic:"shm",diff:"medium",
+ q:"Which of the following equations describes simple harmonic motion? (1) y = 5t³ + sin(25πt) &nbsp; (2) y = 0.05cos(2π − 40πt) &nbsp; (3) y = 64tan(πt²)",
+ opts:["(2) only","(1) only","(3) only","(1) and (2)"],correct:0,
+ exp:"يجب أن تكون المعادلة بصيغة <span class='formula'>A·sin(ωt+φ)</span> أو <span class='formula'>A·cos(ωt+φ)</span> فقط، بدون حدود إضافية (مثل t³ في (1)) أو دوال أخرى غير جيبية (مثل tan في (3)) أو وسيط غير خطي مثل t². فقط (2) تطابق الصيغة القياسية لـ SHM."},
+
+{topic:"shm",diff:"medium",
+ q:"Which equation(s) represent SHM? (1) y = −5cos(7t) &nbsp; (2) y = 5sin(7t + π/18) &nbsp; (3) y = 5sin(7t² + π)",
+ opts:["(1) and (2)","(3) only","(1) only","All of them"],correct:0,
+ exp:"(1) و(2) كلاهما بصيغة <span class='formula'>A·trig(ωt+φ)</span> الصحيحة (الوسيط خطي في t). أما (3) ففيها t² داخل الدالة، وهذا يخالف شرط SHM البسيطة."},
+
+{topic:"shm",diff:"easy",
+ q:"Which differential equation correctly represents SHM for a body of mass m along the y-axis?",
+ opts:["d²y/dt² = −ω²y","d²y/dt² = ω²y","d²y/dt² = −ωy","d²y/dt² = y/ω²"],correct:0,
+ exp:"معادلة SHM التفاضلية القياسية: <span class='formula'>d²y/dt² = −ω²y</span> (تسارع سالب يتناسب طردياً مع الإزاحة)"},
+
+{topic:"shm",diff:"medium",
+ q:"Which of the following represents SHM? (1) y = 4sin(3t) &nbsp; (2) y = 4sin(3t²) &nbsp; (3) y = 4t·sin(3t)",
+ opts:["(1) only","(2) only","(3) only","(1) and (3)"],correct:0,
+ exp:"فقط (1) لها صيغة <span class='formula'>A sin(ωt)</span> القياسية. أما (2) فالوسيط t² غير خطي، و(3) السعة نفسها تتزايد مع الزمن (4t) فهذا تذبذب متضخم وليس SHM."},
+
+{topic:"shm",diff:"easy",
+ q:"Can the function y = A tan(ωt) represent simple harmonic motion?",
+ opts:["No — tan is unbounded and not a valid SHM form","Yes, always","Yes, but only for small ωt","Yes, if A is small"],correct:0,
+ exp:"دالة tan غير محدودة (تذهب لما لا نهاية بشكل متكرر) ولا تمثل تذبذباً منتظماً بسعة ثابتة محدودة، فهي لا تمثل SHM إطلاقاً، بخلاف sin وcos."}
+];
+
+const TOPIC_INTRO = {
+"specific-latent": `
+  <ul>
+    <li><b>الحرارة النوعية (Specific Heat)</b>: الحرارة اللازمة لتغيير درجة حرارة المادة بدون تغيير حالتها: <span class="formula">Q = mcΔT</span>
+      <ul class="vars">
+        <li><b class="sym">Q</b> = الحرارة (Heat) — وحدتها J أو kJ</li>
+        <li><b class="sym">m</b> = الكتلة (Mass) — وحدتها kg</li>
+        <li><b class="sym">c</b> = الحرارة النوعية (Specific Heat Capacity) — وحدتها J/kg·K أو kJ/kg·K</li>
+        <li><b class="sym">ΔT</b> = فرق درجة الحرارة (Tfinal − Tinitial) — وحدتها K أو °C</li>
+      </ul>
+    </li>
+    <li><b>الحرارة الكامنة (Latent Heat)</b>: الحرارة اللازمة لتغيير حالة المادة (انصهار/تبخر) عند درجة حرارة ثابتة: <span class="formula">Q = mL</span>
+      <ul class="vars">
+        <li><b class="sym">Q</b> = الحرارة (Heat) — وحدتها J أو kJ</li>
+        <li><b class="sym">m</b> = الكتلة (Mass) — وحدتها kg</li>
+        <li><b class="sym">L</b> = الحرارة الكامنة النوعية (Specific Latent Heat) — وحدتها J/kg أو kJ/kg، وتُسمى <b class="sym">L_f</b> عند الانصهار (fusion) و<b class="sym">L_v</b> عند التبخر (vaporization)</li>
+      </ul>
+    </li>
+    <li><b>التوازن الحراري</b>: في أي خليط معزول، الحرارة المفقودة من الجسم الأسخن = الحرارة المكتسبة من الجسم الأبرد: <span class="formula">Q_lost = Q_gained</span></li>
+    <li>تنبيه: لو كانت الحرارة المتاحة غير كافية لإذابة كل الثلج مثلاً، فالنتيجة تبقى عند درجة الانصهار (0°C) ولا ترتفع أكثر — افحص هذا أولاً قبل حساب أي درجة حرارة نهائية.</li>
+  </ul>`,
+
+"ideal-gas": `
+  <ul>
+    <li><b>قانون الغاز المثالي</b>: <span class="formula">PV = nRT</span>
+      <ul class="vars">
+        <li><b class="sym">P</b> = الضغط (Pressure) — وحدته Pa (أو bar، حيث 1 bar = 10⁵ Pa)</li>
+        <li><b class="sym">V</b> = الحجم (Volume) — وحدته m³ (أو L، حيث 1 L = 10⁻³ m³)</li>
+        <li><b class="sym">n</b> = عدد المولات (Number of Moles) — وحدته mol</li>
+        <li><b class="sym">R</b> = ثابت الغازات العام (Universal Gas Constant) = 8.314 J/mol·K</li>
+        <li><b class="sym">T</b> = درجة الحرارة المطلقة (Absolute Temperature) — وحدتها K (يجب التحويل من °C بإضافة 273)</li>
+      </ul>
+    </li>
+    <li><b>عدد المولات وعدد الجزيئات</b>: <span class="formula">n = PV/RT</span> ، وعدد الجزيئات <span class="formula">N = n × N_A</span>
+      <ul class="vars">
+        <li><b class="sym">N</b> = عدد الجزيئات (Number of Molecules) — بلا وحدة (عدد)</li>
+        <li><b class="sym">N_A</b> = عدد أفوجادرو (Avogadro's Number) = 6.022×10²³ mol⁻¹</li>
+      </ul>
+    </li>
+    <li><b>ثابت الغاز النوعي r</b>: لكل غاز <span class="formula">r = R/M</span>
+      <ul class="vars">
+        <li><b class="sym">r</b> = ثابت الغاز النوعي (Specific Gas Constant) — وحدته J/kg·K</li>
+        <li><b class="sym">M</b> = الكتلة المولية (Molar Mass) — وحدتها kg/mol (انتبه للتحويل من g/mol)</li>
+      </ul>
+    </li>
+    <li><b>كثافة الغاز</b>: <span class="formula">ρ = PM/RT</span>
+      <ul class="vars">
+        <li><b class="sym">ρ</b> = الكثافة (Density) — وحدتها kg/m³</li>
+      </ul>
+    </li>
+    <li>في الأنظمة المغلقة المتصلة (وعاءين متصلين)، احرص على معرفة هل الضغط يتعادل أم الحجم ثابت أم الحرارة ثابتة، لأن هذا يحدد العلاقة المناسبة.</li>
+  </ul>`,
+
+"first-law": `
+  <ul>
+    <li><b>القانون الأول للديناميكا الحرارية</b>: <span class="formula">ΔU = Q − W</span>
+      <ul class="vars">
+        <li><b class="sym">ΔU</b> = التغير في الطاقة الداخلية (Change in Internal Energy) — وحدتها J</li>
+        <li><b class="sym">Q</b> = الحرارة المتبادلة مع المحيط (Heat) — وحدتها J</li>
+        <li><b class="sym">W</b> = الشغل المبذول من الغاز على المحيط (Work done BY the gas) — وحدتها J</li>
+      </ul>
+    </li>
+    <li>الإشارات: <b class="sym">Q</b> موجبة لو الغاز <b>اكتسب</b> حرارة، وسالبة لو <b>فقد</b> حرارة. <b class="sym">W</b> موجب لو الغاز <b>تمدد</b> (بذل شغل)، وسالب لو <b>انضغط</b> (تم بذل شغل عليه).</li>
+    <li>الشغل القولي (quasi-static) = المساحة تحت المنحنى على مخطط P-V: <span class="formula">W = ∫P dV</span></li>
+    <li>عند ضغط ثابت: <span class="formula">W = PΔV</span>. أما في مسار غير مستقيم (خط منحدر مثلاً) فالشغل = مساحة الشكل الهندسي الناتج (مستطيل، مثلث، شبه منحرف...).</li>
+  </ul>`,
+
+"processes": `
+  <p class="intro-body" style="margin-bottom:10px;">كل عملية لها قاعدة مختلفة لحساب W وQ وΔU، والمفتاح هو معرفة أي كمية ثابتة في العملية. الرموز المشتركة: <b class="sym">n</b>=عدد المولات (mol)، <b class="sym">R</b>=ثابت الغازات (8.314 J/mol·K)، <b class="sym">T</b>=درجة الحرارة المطلقة (K)، <b class="sym">V</b>=الحجم (m³)، <b class="sym">P</b>=الضغط (Pa).</p>
+  <ul>
+    <li><b>Isochoric (حجم ثابت)</b>: <span class="formula">W = 0</span>، <span class="formula">Q = ΔU = nC_vΔT</span>
+      <ul class="vars">
+        <li><b class="sym">C_v</b> = السعة الحرارية المولية عند حجم ثابت (Molar Heat Capacity at Constant Volume) — وحدتها J/mol·K</li>
+      </ul>
+    </li>
+    <li><b>Isobaric (ضغط ثابت)</b>: <span class="formula">W = nRΔT</span>، <span class="formula">Q = nC_pΔT</span>
+      <ul class="vars">
+        <li><b class="sym">C_p</b> = السعة الحرارية المولية عند ضغط ثابت (Molar Heat Capacity at Constant Pressure) — وحدتها J/mol·K</li>
+      </ul>
+    </li>
+    <li><b>Isothermal (حرارة ثابتة)</b>: <span class="formula">ΔU = 0</span>، <span class="formula">W = Q = nRT ln(Vf/Vi)</span>
+      <ul class="vars">
+        <li><b class="sym">Vi, Vf</b> = الحجم الابتدائي والنهائي (Initial/Final Volume) — وحدتهما m³</li>
+      </ul>
+    </li>
+    <li><b>Adiabatic (لا تبادل حراري، Q=0)</b>: <span class="formula">W = −nC_vΔT</span>، ويتحقق <span class="formula">TV^(γ−1) = const</span> و <span class="formula">PV^γ = const</span>
+      <ul class="vars">
+        <li><b class="sym">γ</b> (gamma) = النسبة الأديباتية (Adiabatic Index) = C_p/C_v — بلا وحدة</li>
+      </ul>
+    </li>
+    <li><b>Polytropic</b>: <span class="formula">PV^x = const</span> (صيغة عامة تشمل كل ما سبق كحالات خاصة لـ x)
+      <ul class="vars">
+        <li><b class="sym">x</b> = الأس البوليتروبي (Polytropic Index) — بلا وحدة (قيمة عددية تحدد نوع العملية)</li>
+      </ul>
+    </li>
+    <li>قيم C_v وC_p وγ تعتمد على عدد درجات الحرية <b class="sym">f</b> للغاز (Degrees of Freedom، بلا وحدة): أحادي الذرة f=3 (C_v=3R/2, γ=5/3)، ثنائي الذرة صلب الرابطة f=5 (C_v=5R/2, γ=7/5)، ثلاثي الذرة صلب الروابط f=6 (C_v=3R, γ=4/3).</li>
+  </ul>`,
+
+"cycles": `
+  <ul>
+    <li>الشغل الصافي لدورة كاملة = <b>المساحة المحصورة</b> داخل الدورة على مخطط P-V، بصرف النظر عن شكل العمليات.</li>
+    <li>الكفاءة: <span class="formula">η = W_net/Q_in = 1 − |Q_out|/Q_in</span>
+      <ul class="vars">
+        <li><b class="sym">η</b> (eta) = الكفاءة (Efficiency) — بلا وحدة (تُعرض كنسبة %)</li>
+        <li><b class="sym">W_net</b> = الشغل الصافي للدورة (Net Work per Cycle) — وحدته J</li>
+        <li><b class="sym">Q_in, Q_out</b> = الحرارة الداخلة والخارجة من الدورة — وحدتهما J</li>
+      </ul>
+    </li>
+    <li>طريقة الحل المنهجية: 1) حدد كل نقطة (P,V,T) في الدورة باستخدام قانون الغاز المثالي والعلاقات الخاصة بكل عملية. 2) احسب W وQ وΔU لكل مرحلة على حدة. 3) اجمعهم للحصول على القيم الكلية للدورة.</li>
+    <li>للتأكد من تحقق القانونين: تأكد أن <span class="formula">Qh = W + Ql</span> (أول، حيث <b class="sym">Qh</b> الحرارة الممتصة من المصدر الساخن و<b class="sym">Ql</b> الحرارة المرفوضة للمصدر البارد)، وأن كفاءة الدورة الفعلية ≤ كفاءة كارنو بين نفس درجتي الحرارة القصوى والصغرى (ثاني).</li>
+  </ul>`,
+
+"carnot": `
+  <ul>
+    <li><b>كفاءة محرك كارنو</b>: <span class="formula">η = 1 − Tl/Th</span>
+      <ul class="vars">
+        <li><b class="sym">Tl</b> = درجة حرارة المصدر البارد (Cold Reservoir Temperature) — وحدتها K دائماً</li>
+        <li><b class="sym">Th</b> = درجة حرارة المصدر الساخن (Hot Reservoir Temperature) — وحدتها K دائماً</li>
+      </ul>
+    </li>
+    <li><b>معامل أداء الثلاجة (COP)</b>: <span class="formula">COP_refrigerator = Tl/(Th − Tl) = Ql/W</span>
+      <ul class="vars">
+        <li><b class="sym">COP</b> = معامل الأداء (Coefficient of Performance) — بلا وحدة</li>
+        <li><b class="sym">Ql</b> = الحرارة المُمتصة من الفراغ البارد (Heat Absorbed from Cold Space) — وحدتها J</li>
+        <li><b class="sym">W</b> = الشغل الميكانيكي المبذول (Mechanical Work Input) — وحدتها J</li>
+      </ul>
+    </li>
+    <li><b>معامل أداء المضخة الحرارية</b>: <span class="formula">COP_heat-pump = Th/(Th − Tl) = COP_refrigerator + 1</span></li>
+    <li>علاقة الطاقة العامة لأي محرك أو ثلاجة: <span class="formula">Qh = W + Ql</span>
+      <ul class="vars">
+        <li><b class="sym">Qh</b> = الحرارة المتبادلة مع المصدر الساخن — وحدتها J</li>
+      </ul>
+    </li>
+    <li>إذا كان المحرك "فعلي" بنسبة من كفاءة كارنو (مثل η = 0.6 × η_Carnot)، احسب η_Carnot أولاً ثم اضرب في النسبة المعطاة.</li>
+  </ul>`,
+
+"entropy": `
+  <ul>
+    <li>الإنتروبي <b class="sym">ΔS</b> (Entropy Change، وحدته J/K) مقياس لمدى "اللانظام" في النظام، وتتغير حسب العملية:</li>
+    <li><b>Isochoric</b>: <span class="formula">ΔS = nC_v ln(T₂/T₁)</span>
+      <ul class="vars">
+        <li><b class="sym">T₁, T₂</b> = درجتا الحرارة الابتدائية والنهائية (K)</li>
+      </ul>
+    </li>
+    <li><b>Isobaric</b>: <span class="formula">ΔS = nC_p ln(T₂/T₁)</span></li>
+    <li><b>Isothermal</b>: <span class="formula">ΔS = nR ln(V₂/V₁)</span>
+      <ul class="vars">
+        <li><b class="sym">V₁, V₂</b> = الحجمان الابتدائي والنهائي (m³)</li>
+      </ul>
+    </li>
+    <li><b>الصيغة العامة</b> (تغير حرارة وحجم معاً): <span class="formula">ΔS = nC_v ln(T₂/T₁) + nR ln(V₂/V₁)</span></li>
+    <li><b>تغير الحالة</b> (انصهار/تبخر) عند حرارة ثابتة: <span class="formula">ΔS = mL/T</span>
+      <ul class="vars">
+        <li><b class="sym">m</b> = الكتلة (kg)، <b class="sym">L</b> = الحرارة الكامنة النوعية (J/kg)، <b class="sym">T</b> = درجة الحرارة المطلقة الثابتة أثناء التغير (K)</li>
+      </ul>
+    </li>
+    <li>في العملية الانعكاسية الأديباتية (Reversible Adiabatic): <span class="formula">ΔS = 0</span> لأنها لا تتضمن أي تبادل حراري وعكوسة في نفس الوقت.</li>
+  </ul>`,
+
+"conduction": `
+  <ul>
+    <li><b>قانون فورييه للتوصيل الحراري</b>: <span class="formula">Q̇ = kAΔT/L</span>
+      <ul class="vars">
+        <li><b class="sym">Q̇</b> = معدل التيار الحراري (Rate of Heat Flow) — وحدته W</li>
+        <li><b class="sym">k</b> = معامل التوصيل الحراري (Thermal Conductivity) — وحدته W/m·K</li>
+        <li><b class="sym">A</b> = مساحة المقطع العرضي (Cross-sectional Area) — وحدتها m²</li>
+        <li><b class="sym">ΔT</b> = فرق درجة الحرارة بين الطرفين (K)</li>
+        <li><b class="sym">L</b> = طول/سُمك المادة في اتجاه انتقال الحرارة (Thickness) — وحدته m</li>
+      </ul>
+    </li>
+    <li><b>المقاومة الحرارية</b> (بالتماثل مع قانون أوم في الكهرباء): <span class="formula">R = L/(kA)</span>، ومعدل التيار الحراري <span class="formula">Q̇ = ΔT/R</span>
+      <ul class="vars">
+        <li><b class="sym">R</b> = المقاومة الحرارية (Thermal Resistance) — وحدتها K/W</li>
+      </ul>
+    </li>
+    <li><b>توصيل على التسلسل (Series)</b>: <span class="formula">R_total = R₁ + R₂ + ...</span> (نفس معدل التيار الحراري يعبر كل الطبقات)</li>
+    <li><b>توصيل بالتوازي (Parallel)</b>: <span class="formula">1/R_total = 1/R₁ + 1/R₂ + ...</span> (نفس فرق درجة الحرارة على كل فرع)</li>
+    <li>لإيجاد درجة الحرارة عند نقطة وسطى بين طبقتين، استخدم: <span class="formula">T_point = T_start − Q̇ × R_up_to_that_point</span></li>
+  </ul>`,
+
+"shm": `
+  <ul>
+    <li><b>معادلة الحركة</b>: <span class="formula">x(t) = A sin(ωt + φ)</span> أو <span class="formula">A cos(ωt + φ)</span>
+      <ul class="vars">
+        <li><b class="sym">x(t)</b> = الإزاحة عند زمن t (Displacement) — وحدتها m (أو cm)</li>
+        <li><b class="sym">A</b> = السعة أو أقصى إزاحة (Amplitude) — وحدتها m</li>
+        <li><b class="sym">ω</b> (omega) = التردد الزاوي (Angular Frequency) — وحدته rad/s</li>
+        <li><b class="sym">t</b> = الزمن (Time) — وحدته s</li>
+        <li><b class="sym">φ</b> (phi) = طور البداية (Phase Constant) — وحدته rad</li>
+      </ul>
+    </li>
+    <li><b>السرعة والتسارع</b>: <span class="formula">v_max = Aω</span> ، <span class="formula">a_max = Aω²</span> ، والعلاقة التفاضلية الأساسية: <span class="formula">a = −ω²x</span>
+      <ul class="vars">
+        <li><b class="sym">v_max</b> = أقصى سرعة (Maximum Speed) — وحدتها m/s</li>
+        <li><b class="sym">a_max</b> = أقصى تسارع (Maximum Acceleration) — وحدتها m/s²</li>
+      </ul>
+    </li>
+    <li><b>أقصى قوة</b>: <span class="formula">F_max = mAω²</span>
+      <ul class="vars">
+        <li><b class="sym">F_max</b> = أقصى قوة (Maximum Force) — وحدتها N</li>
+        <li><b class="sym">m</b> = كتلة الجسم المتحرك (kg)</li>
+      </ul>
+    </li>
+    <li><b>الزمن الدوري والتردد</b>: <span class="formula">T = 2π/ω</span> ، <span class="formula">f = 1/T</span>
+      <ul class="vars">
+        <li><b class="sym">T</b> = الزمن الدوري (Period) — وحدته s</li>
+        <li><b class="sym">f</b> = التردد (Frequency) — وحدته Hz</li>
+      </ul>
+    </li>
+    <li><b>الطاقة الكلية</b> (ثابتة دائماً): <span class="formula">E = ½mω²A² = ½kA²</span>، وفي أي لحظة <span class="formula">E = KE + PE</span>
+      <ul class="vars">
+        <li><b class="sym">E</b> = الطاقة الكلية (Total Energy) — وحدتها J</li>
+        <li><b class="sym">k</b> = ثابت الزنبرك (Spring Constant) — وحدته N/m، ويُحسب من <b class="sym">k = mω²</b></li>
+        <li><b class="sym">KE, PE</b> = الطاقة الحركية والوضع اللحظيتان (Kinetic/Potential Energy) — وحدتهما J</li>
+      </ul>
+    </li>
+    <li>عند KE = PE، تكون الإزاحة <span class="formula">x = A/√2</span> (لأن كل منهما يساوي نصف الطاقة الكلية)</li>
+  </ul>`
+};
+
+const TOPIC_RESOURCES = {
+"specific-latent": { ar: [
+    { title: "Heat 01 - Specific & Latent Heat", author: "د. ياسر البطاوي", url: "https://youtu.be/OFnSYlZlAbg" },
+  ], en: [
+    { title: "Physics 22 - Introduction to Heat & Temperature (1 of 6)", author: "Michel van Biezen", url: "https://www.youtube.com/watch?v=zd-FjMksimw" },
+  ]},
+"ideal-gas": { ar: [
+    { title: "Ideal Gas - الغاز المثالي", author: "د. ياسر البطاوي", url: "https://youtu.be/btTcPYUcqHQ" },
+    { title: "Thermal Processes 01 - Internal Energy & Degrees of Freedom", author: "د. ياسر البطاوي", url: "https://youtu.be/S0HlDqZoqD0" },
+  ], en: [
+    { title: "Ideal Gas Law (playlist)", author: "Tyler DeWitt", url: "https://www.youtube.com/playlist?list=PL3hPm0ZdYhyxbtpjC_Pue2ewlVlIPEDAA" },
+  ]},
+"first-law": { ar: [
+    { title: "Thermal Processes 02 - Work", author: "د. ياسر البطاوي", url: "https://youtu.be/I7qrSQ-ifYg" },
+    { title: "Thermal Processes 03 - First Law of Thermodynamics", author: "د. ياسر البطاوي", url: "https://youtu.be/BO3QuMZZNpY" },
+  ], en: [
+    { title: "Thermodynamics, PV Diagrams, Internal Energy, Heat, Work, Isothermal, Adiabatic, Isobaric", author: "The Organic Chemistry Tutor", url: "https://www.youtube.com/watch?v=TnDCxw0y6YM" },
+  ]},
+"processes": { ar: [
+    { title: "Thermal Processes 04 - (V=const) Process", author: "د. ياسر البطاوي", url: "https://youtu.be/zPrI-cfd8co" },
+    { title: "Thermal Processes 05 - Isobaric (P=const)", author: "د. ياسر البطاوي", url: "https://youtu.be/bH_gI_S9hYU" },
+    { title: "Thermal Processes 06 - Isothermal (T=const)", author: "د. ياسر البطاوي", url: "https://youtu.be/L_x_n9NO2f8" },
+    { title: "Thermal Processes 07 - Adiabatic 01", author: "د. ياسر البطاوي", url: "https://youtu.be/NWtw8flhL_I" },
+    { title: "Thermal Processes 08 - Adiabatic 02", author: "د. ياسر البطاوي", url: "https://youtu.be/wh-YTQEVl_E" },
+    { title: "Thermal Processes 09-11 - Examples", author: "د. ياسر البطاوي", url: "https://youtu.be/U4v5l2C0mwc" },
+  ], en: [
+    { title: "Thermodynamics, PV Diagrams... Isothermal, Adiabatic, Isobaric", author: "The Organic Chemistry Tutor", url: "https://www.youtube.com/watch?v=TnDCxw0y6YM" },
+  ]},
+"cycles": { ar: [
+    { title: "Thermal Cycles 01 - الدورات الحرارية", author: "د. ياسر البطاوي", url: "https://youtu.be/9l4QwXkmAiM" },
+    { title: "Thermal Cycle 04 - Examples (Part 1)", author: "د. ياسر البطاوي", url: "https://youtu.be/l9BKsXOfovs" },
+    { title: "Thermal Cycles 05 - Examples (Part 2)", author: "د. ياسر البطاوي", url: "https://youtu.be/_uSpxB-c1r8" },
+  ], en: [
+    { title: "Carnot Heat Engines, Efficiency, Refrigerators, Pumps, Entropy - Second Law", author: "The Organic Chemistry Tutor", url: "https://www.youtube.com/watch?v=QBd2zraOe2k" },
+  ]},
+"carnot": { ar: [
+    { title: "Thermal Cycles 02 - Carnot Cycle - دورة كارنو", author: "د. ياسر البطاوي", url: "https://youtu.be/FRbVbT8vpgc" },
+  ], en: [
+    { title: "Carnot Cycle and Definition of Entropy", author: "Michel van Biezen", url: "https://www.youtube.com/watch?v=-dcVMGNfCpk" },
+  ]},
+"entropy": { ar: [
+    { title: "Entropy 01 - الانتروبي", author: "د. ياسر البطاوي", url: "https://youtu.be/-qyqfQzyj8w" },
+    { title: "Entropy 02 - الانتروبي", author: "د. ياسر البطاوي", url: "https://youtu.be/T3W1FUXUBOo" },
+  ], en: [
+    { title: "Physics 30 - Entropy (5 of 5): Entropy and Heat Exchange Example", author: "Michel van Biezen", url: "https://www.youtube.com/watch?v=BILD5zMnsUU" },
+  ]},
+"conduction": { ar: [
+    { title: "Heat 02 - Heat Transfer - Zeroth Law of Thermodynamics", author: "د. ياسر البطاوي", url: "https://youtu.be/5dYOPZbdsOs" },
+    { title: "Heat 03 - Heat Transfer - Zeroth Law of Thermo", author: "د. ياسر البطاوي", url: "https://youtu.be/ZBa5DTyytYo" },
+  ], en: [
+    { title: "Physics 24 - Heat Transfer (1 of 34): Basic Definition", author: "Michel van Biezen", url: "https://www.youtube.com/watch?v=r3tC-ocdVoQ" },
+  ]},
+"shm": { ar: [
+    { title: "Oscillatory Motion (Lecture)", author: "د. ياسر البطاوي", url: "https://youtu.be/joaBGYWxrPk" },
+    { title: "Oscillatory Motion - Examples (I)", author: "د. ياسر البطاوي", url: "https://youtu.be/qit91J6RpPo" },
+    { title: "Oscillatory Motion (Lecture) - Part 01", author: "د. ياسر البطاوي", url: "https://youtu.be/D7M-FmpPqQk" },
+    { title: "Oscillatory Motion (Lecture) - part 2 - Examples", author: "د. ياسر البطاوي", url: "https://youtu.be/_x1cqFOGWAw" },
+    { title: "Superposition of SHM", author: "د. ياسر البطاوي", url: "https://youtu.be/jfE2vltN5Kg" },
+  ], en: [
+    { title: "Physics 16 - Simple Harmonic Motion (1 of 19): Why is there a (-) in F=-kx?", author: "Michel van Biezen", url: "https://www.youtube.com/watch?v=pKKfmthLNmQ" },
+  ]}
+};
+
+const diffLabel = {easy:"سهل",medium:"متوسط",hard:"صعب"};
+
+
+// Shuffle each question's options once at load so the correct answer isn't always in the same position
+Q.forEach(q=>{
+  const order = q.opts.map((_,i)=>i);
+  for(let i=order.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [order[i],order[j]] = [order[j],order[i]];
+  }
+  q.opts = order.map(i=>q.opts[i]);
+  q.correct = order.indexOf(q.correct);
+});
+
+let state = {topic:"all", diff:"all"};
+let answers = {}; // index -> chosenIndex
+
+// Populate topic filter
+const topicSel = document.getElementById('topicFilter');
+topicSel.innerHTML = '<option value="all">كل الموضوعات</option>' +
+  Object.entries(TOPICS).map(([k,v])=>`<option value="${k}">${v}</option>`).join('');
+topicSel.addEventListener('change', e=>{state.topic=e.target.value; render();});
+
+document.querySelectorAll('.chip').forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+    chip.classList.add('active');
+    state.diff = chip.dataset.diff;
+    render();
+  });
+});
+
+document.getElementById('resetBtn').addEventListener('click', ()=>{
+  answers = {};
+  render();
+});
+
+function updateStats(filtered){
+  document.getElementById('statTotal').textContent = Q.length;
+  document.getElementById('statShown').textContent = filtered.length;
+  const answeredKeys = Object.keys(answers);
+  document.getElementById('statAnswered').textContent = answeredKeys.length;
+  const correctCount = answeredKeys.filter(k=>answers[k]===Q[k].correct).length;
+  document.getElementById('statCorrect').textContent = correctCount;
+}
+
+function render(){
+  const container = document.getElementById('quizContainer');
+  const emptyMsg = document.getElementById('emptyMsg');
+  container.innerHTML = '';
+
+  const filtered = Q.map((q,i)=>({...q, idx:i})).filter(q=>{
+    const topicOk = state.topic==='all' || q.topic===state.topic;
+    const diffOk = state.diff==='all' || q.diff===state.diff;
+    return topicOk && diffOk;
+  });
+
+  document.getElementById('qcount').textContent = `عرض ${filtered.length} من ${Q.length} سؤال`;
+  updateStats(filtered);
+
+  if(filtered.length===0){
+    emptyMsg.style.display='block';
+    return;
+  }
+  emptyMsg.style.display='none';
+
+  function buildResourceCell(items){
+    if(!items || items.length===0) return '<span style="color:var(--muted);font-size:14px;">غير متاح</span>';
+    return items.map(v => `
+      <span class="res-link">
+        <span class="res-title">${v.title}</span>
+        <span class="res-author">${v.author}</span>
+        <a href="${v.url}" target="_blank" rel="noopener">${v.url}</a>
+      </span>`).join('');
+  }
+
+  let lastTopic = null;
+  filtered.forEach((q, displayIdx)=>{
+    if(q.topic !== lastTopic){
+      lastTopic = q.topic;
+      const intro = document.createElement('div');
+      intro.className = 'intro';
+      const res = TOPIC_RESOURCES[q.topic];
+      const resourcesHTML = res ? `
+        <div class="resources">
+          <div class="resources-label">فيديوهات الشرح</div>
+          <table class="res-table">
+            <tr><th>قنوات عربي</th><th>English Channels</th></tr>
+            <tr>
+              <td>${buildResourceCell(res.ar)}</td>
+              <td>${buildResourceCell(res.en)}</td>
+            </tr>
+          </table>
+        </div>` : '';
+      intro.innerHTML = `
+        <span class="intro-tag">ملخص الموضوع</span>
+        <h3>${TOPICS[q.topic]}</h3>
+        <div class="intro-body">${TOPIC_INTRO[q.topic]}</div>
+        ${resourcesHTML}
+      `;
+      container.appendChild(intro);
+    }
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    const chosen = answers[q.idx];
+    const answered = chosen !== undefined;
+
+    card.innerHTML = `
+      <div class="card-top">
+        <span class="qnum">Q${displayIdx+1}</span>
+        <div class="tags">
+          <span class="tag topic">${TOPICS[q.topic]}</span>
+          <span class="tag diff-${q.diff}">${diffLabel[q.diff]}</span>
+        </div>
+      </div>
+      <div class="qtext">${q.q}</div>
+      <div class="options">
+        ${q.opts.map((opt,oi)=>{
+          let cls = 'opt';
+          if(answered){
+            cls += ' disabled';
+            if(oi===q.correct) cls += ' correct';
+            else if(oi===chosen) cls += ' wrong';
+          }
+          return `<div class="${cls}" data-idx="${q.idx}" data-oi="${oi}">${String.fromCharCode(97+oi)}) ${opt}</div>`;
+        }).join('')}
+      </div>
+      <div class="solution ${answered ? 'show':''}"><b>الحل:</b> ${q.exp}</div>
+    `;
+    container.appendChild(card);
+  });
+
+  container.querySelectorAll('.opt:not(.disabled)').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      const qi = parseInt(el.dataset.idx);
+      const oi = parseInt(el.dataset.oi);
+      answers[qi] = oi;
+      render();
+    });
+  });
+}
+
+render();
+</script>
+</body>
+</html>
